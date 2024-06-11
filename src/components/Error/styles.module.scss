@@ -1,0 +1,69 @@
+﻿.error-boundry {
+  margin: 60px auto 0 auto;
+  padding: 10px;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & svg {
+      max-width: 55px;
+      width: 100%;
+      margin-right: 8px;
+      color: rgb(239, 68, 68);
+      stroke: rgb(239, 68, 68);
+    }
+  }
+
+  &__text {
+    flex: 0 1 auto;
+    font-size: 24px;
+  }
+
+  &__button {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 21.6px;
+    margin-bottom: 50px;
+    padding: 10px 20px;
+    color: var(--course-color-black-blue);
+    background-color: var(--course-color-white);
+    border: 1px solid var(--course-color-black-blue);
+    border-radius: 5px;
+    text-align: center;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+    &:hover {
+      border: 1px solid transparent !important;
+      background-color: var(--course-color-dark-blue) !important;
+      color: var(--course-color-light-gray) !important;
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .error-page__code {
+    font-size: 100px;
+  }
+
+  .error-page__content svg {
+    width: 25px;
+  }
+
+  .error-page__text {
+    font-size: 18px;
+  }
+}
