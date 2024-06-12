@@ -25,6 +25,7 @@
   --page-color-link: rgba(141, 142, 145, 1);
   --page-color-purple: rgba(122, 47, 150, 1);
   --page-color-dark-gray: rgba(135, 138, 142, 1);
+  --page-color-light-purple: rgba(231, 236, 243, 1);
   --page-max-width-layout: 1440px;
   --page-max-width-main: 1272px;
 }

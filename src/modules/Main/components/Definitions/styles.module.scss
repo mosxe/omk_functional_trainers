@@ -1,0 +1,85 @@
+﻿.definitions {
+  margin-bottom: 120px;
+
+  &__title {
+    margin: 0px !important;
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 44px;
+    color: var(--page-color-dark-blue);
+    max-width: 600px;
+    width: 100%;
+
+    &_red {
+      color: var(--page-color-red);
+    }
+  }
+
+  &__wrapper {
+    margin-top: 50px;
+    display: flex;
+    gap: 36px;
+  }
+
+  &__container {
+    position: relative;
+    flex-basis: calc(50% - 18px);
+    height: 633px;
+  }
+
+  &__img {
+    height: 484px;
+    width: 100%;
+
+    & img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+  }
+
+  &__content {
+    position: absolute;
+    top: 283px;
+    left: 0px;
+    right: 18px;
+    height: 350px;
+    padding: 40px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    color: var(--page-color-link);
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: var(--page-color-white);
+    box-shadow: 0px 1px 3px 0px rgba(0, 50, 75, 0.02),
+      0px 3px 7px 0px rgba(0, 50, 75, 0.03),
+      9px 5px 15px 0px rgba(0, 50, 75, 0.03),
+      13px 11px 29px 0px rgba(0, 50, 75, 0.04),
+      3px 31px 80px 0px rgba(0, 50, 75, 0.06);
+
+    & ul {
+      padding-left: 24px;
+
+      & li {
+        margin-bottom: 10px;
+
+        &:last-child {
+          margin-bottom: 0px;
+        }
+      }
+    }
+  }
+
+  &__text-red {
+    font-weight: 700;
+    color: var(--page-color-red);
+  }
+
+  &__text-black {
+    font-weight: 700 !important;
+    color: var(--page-color-black);
+  }
+}

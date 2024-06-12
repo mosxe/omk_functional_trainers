@@ -1,0 +1,59 @@
+﻿.importants {
+  margin-bottom: 120px;
+
+  &__wrapper {
+    display: flex;
+    gap: 36px;
+    padding-right: 20px;
+  }
+
+  &__title {
+    margin: 0px !important;
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 44px;
+    color: var(--page-color-dark-blue);
+    flex-basis: 50%;
+
+    &_red {
+      color: var(--page-color-red);
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    flex-basis: calc(50% - 18px);
+  }
+
+  &__card {
+    display: flex;
+    gap: 20px;
+    border-radius: 5px;
+    padding: 40px 20px;
+    background-color: var(--page-color-white);
+    box-shadow: 0px 1px 3px 0px rgba(0, 50, 75, 0.02),
+      0px 3px 7px 0px rgba(0, 50, 75, 0.03),
+      9px 5px 15px 0px rgba(0, 50, 75, 0.03),
+      13px 11px 29px 0px rgba(0, 50, 75, 0.04),
+      3px 31px 80px 0px rgba(0, 50, 75, 0.06);
+  }
+
+  &__img {
+    height: 60px;
+    width: 60px;
+  }
+
+  &__text {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    color: var(--page-color-link);
+
+    &_black {
+      font-weight: 700;
+      color: var(--page-color-black);
+    }
+  }
+}
