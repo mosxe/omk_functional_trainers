@@ -1,0 +1,146 @@
+﻿.program {
+  margin-bottom: 120px;
+
+  &__title {
+    margin: 0px !important;
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 44px;
+    color: var(--page-color-dark-blue);
+
+    &_red {
+      color: var(--page-color-red);
+    }
+  }
+
+  &__subtitle {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 31.2px;
+    color: var(--page-color-dark-blue);
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+  }
+
+  &__row {
+    display: flex;
+    gap: 50px;
+  }
+
+  &__content {
+    display: flex;
+    flex-basis: calc(50% - 25px);
+
+    &_end {
+      align-self: flex-end;
+    }
+  }
+
+  &__card {
+    display: flex;
+    gap: 20px;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 1px 3px 0px rgba(0, 50, 75, 0.02),
+      0px 3px 7px 0px rgba(0, 50, 75, 0.03),
+      9px 5px 15px 0px rgba(0, 50, 75, 0.03),
+      13px 11px 29px 0px rgba(0, 50, 75, 0.04),
+      3px 31px 80px 0px rgba(0, 50, 75, 0.06);
+
+    &_img {
+      width: 60px;
+      height: 60px;
+    }
+
+    &_wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    &_title {
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 23.4px;
+      color: var(--page-color-black);
+    }
+
+    &_text {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 17.5px;
+      margin: 0px !important;
+      color: var(--page-color-link);
+    }
+
+    &_btn {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 15px;
+      margin: 0px !important;
+      height: 26px;
+      color: var(--page-color-red);
+      background-color: var(--page-color-white);
+      border-radius: 10px;
+      padding: 10px 0px 0px 0px;
+      border: none !important;
+      white-space: nowrap;
+      outline: none !important;
+      text-transform: uppercase;
+      cursor: pointer;
+      letter-spacing: 0.3px;
+      transition: color 0.3s ease;
+
+      & svg path {
+        transition: stroke 0.3s ease;
+      }
+
+      &:hover {
+        background-color: var(--page-color-white) !important;
+        color: var(--page-color-ligth-blue) !important;
+
+        & svg path {
+          stroke: var(--page-color-ligth-blue);
+        }
+      }
+
+      &:active {
+        background-color: var(--page-color-white) !important;
+        color: var(--page-color-black) !important;
+
+        & svg path {
+          stroke: var(--page-color-black);
+        }
+      }
+    }
+  }
+
+  &__modal-header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__modal-row {
+    display: flex;
+    gap: 20px;
+
+    & img {
+      width: 36px;
+      height: 36px;
+    }
+  }
+
+  &__modal-title {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 23.4px;
+    color: var(--page-color-black);
+  }
+}

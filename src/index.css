@@ -20,6 +20,7 @@
   --page-color-white: rgba(255, 255, 255, 1);
   --page-color-blue: rgba(2, 50, 74, 1);
   --page-color-dark-blue: rgba(0, 50, 75, 1);
+  --page-color-dark-blue-opacity8: rgba(0, 50, 75, 0.8);
   --page-color-ligth-blue: rgba(0, 124, 255, 1);
   --page-color-gray: rgba(208, 212, 217, 1);
   --page-color-link: rgba(141, 142, 145, 1);
