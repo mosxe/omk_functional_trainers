@@ -70,8 +70,8 @@ const Model = () => {
                   <path
                     d='M2.5 7.16667L6.5 10.7941L10.5 7.20181M6.5 1.16667V10.5952M0.5 13.1667H12.5'
                     stroke='#8D8E91'
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
                   />
                 </svg>
               </button>

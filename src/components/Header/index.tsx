@@ -55,8 +55,8 @@ const Header = () => {
                 <path
                   d='M1 10.5H61L42.1864 0.5'
                   stroke='#E1251B'
-                  stroke-linecap='round'
-                  stroke-linejoin='round'
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
                 />
               </svg>
             </button>
@@ -72,8 +72,8 @@ const Header = () => {
                 <path
                   d='M1 10.5H61L42.1864 0.5'
                   stroke='#E1251B'
-                  stroke-linecap='round'
-                  stroke-linejoin='round'
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
                 />
               </svg>
             </button>

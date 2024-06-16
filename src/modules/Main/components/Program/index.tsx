@@ -1,6 +1,8 @@
 ﻿import { useState } from 'react';
-import Modal, { ButtonClose } from 'components/Modal';
+import Modal from 'components/Modal';
 import ModalContent from './ModalContent';
+import PopapContent from './PopalContent';
+import Popap from 'components/Popap';
 import Image1 from 'assets/svg/Program/card_1.svg';
 import Image2 from 'assets/svg/Program/card_2.svg';
 import Image3 from 'assets/svg/Program/card_3.svg';
@@ -8,11 +10,21 @@ import Image4 from 'assets/svg/Program/card_4.svg';
 import styles from './styles.module.scss';
 
 const Program = () => {
-  const [isShow, setShow] = useState<boolean>(false);
+  const [isShowModal, setShowModal] = useState<boolean>(false);
+  const [isShowPopap, setShowPopap] = useState<boolean>(false);
   const [activeIndex, setActiveIndex] = useState<number>(1);
 
-  const onShowHandler = () => {
-    setShow(!isShow);
+  const onShowModalHandler = () => {
+    setShowModal(!isShowModal);
+  };
+
+  const onShowPopapHandler = () => {
+    setShowPopap(!isShowPopap);
+  };
+
+  const handleClick = (index: number) => {
+    setActiveIndex(index);
+    onShowModalHandler();
   };
 
   return (
@@ -56,7 +68,7 @@ const Program = () => {
                   <button
                     className={styles.program__card_btn}
                     type='button'
-                    onClick={onShowHandler}
+                    onClick={() => handleClick(1)}
                   >
                     Записаться на диагностику
                     <svg
@@ -96,7 +108,7 @@ const Program = () => {
                   <button
                     className={styles.program__card_btn}
                     type='button'
-                    onClick={onShowHandler}
+                    onClick={() => handleClick(2)}
                   >
                     Записаться на тренинг
                     <svg
@@ -138,7 +150,7 @@ const Program = () => {
                   <button
                     className={styles.program__card_btn}
                     type='button'
-                    onClick={onShowHandler}
+                    onClick={() => handleClick(3)}
                   >
                     скачать план развития
                     <svg
@@ -178,7 +190,7 @@ const Program = () => {
                   <button
                     className={styles.program__card_btn}
                     type='button'
-                    onClick={onShowHandler}
+                    onClick={() => handleClick(4)}
                   >
                     Записаться на сертификацию
                     <svg
@@ -202,9 +214,16 @@ const Program = () => {
           </div>
         </div>
       </section>
-      <Modal isShow={isShow} onClose={onShowHandler} width={800}>
-        <ModalContent id={1} onClick={onShowHandler} />
+      <Modal isShow={isShowModal} onClose={onShowModalHandler} width={800}>
+        <ModalContent
+          id={activeIndex}
+          onClick={onShowModalHandler}
+          onShowPopap={onShowPopapHandler}
+        />
       </Modal>
+      <Popap isShow={isShowPopap} onClose={onShowPopapHandler}>
+        <PopapContent id={activeIndex} onClick={onShowPopapHandler} />
+      </Popap>
     </>
   );
 };

@@ -98,6 +98,10 @@
       letter-spacing: 0.3px;
       transition: color 0.3s ease;
 
+      &-center {
+        margin: 0px auto !important;
+      }
+
       & svg path {
         transition: stroke 0.3s ease;
       }
@@ -137,10 +141,118 @@
     }
   }
 
+  &__modal-content {
+    margin-bottom: 10px;
+  }
+
   &__modal-title {
     font-size: 18px;
     font-weight: 700;
     line-height: 23.4px;
     color: var(--page-color-black);
+  }
+
+  &__modal-text {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20.8px;
+    color: var(--page-color-black);
+    margin: 0px !important;
+  }
+
+  &__popap-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__popap-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  &__popap-image {
+    width: 60px;
+    height: 60px;
+  }
+
+  &__popap-title {
+    margin: 0px !important;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 31.2px;
+    text-align: center;
+    color: var(--page-color-black);
+  }
+
+  &__popap-content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &__popap-text {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 15.6px;
+    text-align: left;
+    color: var(--page-color-black);
+
+    &-gray {
+      text-align: center;
+      color: var(--page-color-link);
+    }
+  }
+
+  &__popap-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 18.2px;
+    margin: 0px !important;
+    color: var(--page-color-white);
+    background-color: var(--page-color-dark-blue);
+    border-radius: 5px;
+    padding: 18px 30px;
+    border: 1px solid var(--page-color-dark-blue);
+    height: 54px;
+    white-space: nowrap;
+    outline: none !important;
+    text-transform: uppercase;
+    cursor: pointer;
+    letter-spacing: 0.3px;
+    transition: background-color 0.3s ease, color 0.3s ease,
+      border-color 0.3s ease;
+
+    & svg {
+      width: 19px;
+      height: 19px;
+
+      & path {
+        transition: all 0.3s ease;
+      }
+    }
+
+    &:hover {
+      background-color: var(--page-color-red) !important;
+      color: var(--page-color-white) !important;
+      border: 1px solid var(--page-color-red) !important;
+    }
+
+    &:active {
+      background-color: var(--page-color-white) !important;
+      color: var(--page-color-dark-blue) !important;
+      border: 1px solid var(--page-color-dark-blue) !important;
+
+      & svg path {
+        stroke: var(--page-color-dark-blue);
+      }
+    }
   }
 }

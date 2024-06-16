@@ -10,6 +10,7 @@ import KPI from './components/KPI';
 import Support from './components/Support';
 import Model from './components/Model';
 import Program from './components/Program';
+import Schedule from './components/Schedule';
 import styles from './styles.module.scss';
 
 const Main = () => {
@@ -27,6 +28,7 @@ const Main = () => {
         <Support />
         <Model />
         <Program />
+        <Schedule />
       </main>
       <Footer />
     </>
