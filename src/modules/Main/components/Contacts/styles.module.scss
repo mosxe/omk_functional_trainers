@@ -1,0 +1,78 @@
+﻿.contacts {
+  margin-bottom: 68px;
+
+  &__wrapper {
+    display: flex;
+    gap: 30px;
+    justify-content: space-between;
+    padding: 50px;
+    background-color: var(--page-color-gray);
+    border-radius: 10px;
+  }
+
+  &__title {
+    margin: 0px !important;
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 44px;
+    color: var(--page-color-dark-blue);
+
+    &_red {
+      color: var(--page-color-red);
+    }
+  }
+
+  &__container {
+    display: flex;
+    gap: 50px;
+    justify-content: flex-end;
+  }
+
+  &__col {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 272px;
+    gap: 10px;
+  }
+
+  &__img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  &__text {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 23.4px;
+    text-align: left;
+    color: var(--page-color-black);
+  }
+
+  &__desc {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18.2px;
+    letter-spacing: 0.02em;
+    text-align: left;
+    color: var(--page-color-link);
+  }
+
+  &__email {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20.8px;
+    text-align: left;
+    color: var(--page-color-red);
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: var(--page-color-black);
+    }
+
+    &:active {
+      color: var(--page-color-dark-blue);
+    }
+  }
+}

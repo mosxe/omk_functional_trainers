@@ -186,6 +186,10 @@
     line-height: 31.2px;
     text-align: center;
     color: var(--page-color-black);
+
+    &-db {
+      color: var(--page-color-dark-blue);
+    }
   }
 
   &__popap-content {
@@ -200,6 +204,11 @@
     line-height: 15.6px;
     text-align: left;
     color: var(--page-color-black);
+
+    &-l {
+      font-size: 18px;
+      line-height: 23.8px;
+    }
 
     &-gray {
       text-align: center;

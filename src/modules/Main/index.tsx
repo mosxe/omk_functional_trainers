@@ -11,6 +11,8 @@ import Support from './components/Support';
 import Model from './components/Model';
 import Program from './components/Program';
 import Schedule from './components/Schedule';
+import Materials from './components/Materials';
+import Contacts from './components/Contacts';
 import styles from './styles.module.scss';
 
 const Main = () => {
@@ -29,6 +31,8 @@ const Main = () => {
         <Model />
         <Program />
         <Schedule />
+        <Materials />
+        <Contacts />
       </main>
       <Footer />
     </>
