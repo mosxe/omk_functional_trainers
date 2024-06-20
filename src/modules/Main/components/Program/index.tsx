@@ -9,7 +9,11 @@ import Image3 from 'assets/svg/Program/card_3.svg';
 import Image4 from 'assets/svg/Program/card_4.svg';
 import styles from './styles.module.scss';
 
-const Program = () => {
+type Props = {
+  link: string;
+};
+
+const Program = ({ link }: Props) => {
   const [isShowModal, setShowModal] = useState<boolean>(false);
   const [isShowPopap, setShowPopap] = useState<boolean>(false);
   const [activeIndex, setActiveIndex] = useState<number>(1);
@@ -222,7 +226,11 @@ const Program = () => {
         />
       </Modal>
       <Popap isShow={isShowPopap} onClose={onShowPopapHandler}>
-        <PopapContent id={activeIndex} onClick={onShowPopapHandler} />
+        <PopapContent
+          id={activeIndex}
+          onClick={onShowPopapHandler}
+          link={link}
+        />
       </Popap>
     </>
   );

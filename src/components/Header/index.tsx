@@ -5,7 +5,10 @@ import HeaderImage from 'assets/images/header.png';
 // import HeaderMainImageMobile from 'assets/images/header_main_mobile.jpg';
 import styles from './styles.module.scss';
 
-const Header = () => {
+type Props = {
+  onClick: (isTeaching: boolean) => void;
+};
+const Header = ({ onClick }: Props) => {
   // const [width] = useWindowSize();
   // const image = isMain ? HeaderImage : HeaderConditionImage;
 
@@ -43,7 +46,11 @@ const Header = () => {
             внутренних преподавателей ОМК
           </h1>
           <div className={styles.header__btns}>
-            <button className={styles.header__btn} type='button'>
+            <button
+              className={styles.header__btn}
+              type='button'
+              onClick={() => onClick(true)}
+            >
               Хочу обучать других
               <svg
                 width='62'
@@ -60,7 +67,11 @@ const Header = () => {
                 />
               </svg>
             </button>
-            <button className={styles.header__btn} type='button'>
+            <button
+              className={styles.header__btn}
+              type='button'
+              onClick={() => onClick(false)}
+            >
               Уже преподаю
               <svg
                 width='62'

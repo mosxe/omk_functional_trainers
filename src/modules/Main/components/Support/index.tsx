@@ -1,12 +1,13 @@
-﻿import Image1 from 'assets/svg/Support/svg_1.svg';
+﻿import { forwardRef } from 'react';
+import Image1 from 'assets/svg/Support/svg_1.svg';
 import Image2 from 'assets/svg/Support/svg_2.svg';
 import Image3 from 'assets/svg/Support/svg_3.svg';
 import Image4 from 'assets/svg/Support/svg_4.svg';
 import styles from './styles.module.scss';
 
-const Support = () => {
+const Support = forwardRef<HTMLDivElement>((_, ref) => {
   return (
-    <section className={styles.support}>
+    <section className={styles.support} ref={ref}>
       <div className={styles.support__wrapper}>
         <h2 className={styles.support__title}>
           <span className={styles.support__title_red}>Какую поддержку</span>{' '}
@@ -95,6 +96,6 @@ const Support = () => {
       </div>
     </section>
   );
-};
+});
 
 export default Support;

@@ -10,9 +10,10 @@ import styles from './styles.module.scss';
 type Props = {
   id: number | null;
   onClick: () => void;
+  link: string;
 };
 
-const PopapContent = ({ id, onClick }: Props) => {
+const PopapContent = ({ id, onClick, link }: Props) => {
   const [isShowAlert, setShowAlert] = useState<boolean>(false);
   const handleClick = () => {
     //Идет запрос на сервер
@@ -20,7 +21,7 @@ const PopapContent = ({ id, onClick }: Props) => {
   };
 
   const onDownloadFile = () => {
-    window.open('yandex.ru', '_blank');
+    window.open(link, '_blank');
     onClick();
   };
 

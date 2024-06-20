@@ -4,9 +4,14 @@ import ImageFooter2 from 'assets/images/Teaching/img_1.png';
 import ImageFooter3 from 'assets/images/Teaching/card_3.png';
 import styles from './styles.module.scss';
 
-const Model = () => {
-  const link =
-    'https://videocdn.cdnpk.net/euphony/content/video/partners0266/large_watermarked/hf9158c11_146879_FPpreview.mp4?filename=5462406_coll_wavebreak_neuron_pink_1920x1080.mp4';
+type Props = {
+  link: string;
+};
+
+const Model = ({ link }: Props) => {
+  const handleClick = () => {
+    window.open(link, '_blank');
+  };
 
   return (
     <section className={styles.model}>
@@ -58,23 +63,29 @@ const Model = () => {
           <div className={styles.model__container}>
             <div className={styles.model__box}>
               <span className={styles.model__header}>Модель компетенций</span>
-              <button className={styles.model__btn} type='button'>
-                <span>Скачать</span>
-                <svg
-                  width='13'
-                  height='14'
-                  viewBox='0 0 13 14'
-                  fill='none'
-                  xmlns='http://www.w3.org/2000/svg'
+              {link && (
+                <button
+                  className={styles.model__btn}
+                  type='button'
+                  onClick={handleClick}
                 >
-                  <path
-                    d='M2.5 7.16667L6.5 10.7941L10.5 7.20181M6.5 1.16667V10.5952M0.5 13.1667H12.5'
-                    stroke='#8D8E91'
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
-                  />
-                </svg>
-              </button>
+                  <span>Скачать</span>
+                  <svg
+                    width='13'
+                    height='14'
+                    viewBox='0 0 13 14'
+                    fill='none'
+                    xmlns='http://www.w3.org/2000/svg'
+                  >
+                    <path
+                      d='M2.5 7.16667L6.5 10.7941L10.5 7.20181M6.5 1.16667V10.5952M0.5 13.1667H12.5'
+                      stroke='#8D8E91'
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
+                    />
+                  </svg>
+                </button>
+              )}
             </div>
             <div className={styles.model__scheme}>
               <div className={styles.model__img}>

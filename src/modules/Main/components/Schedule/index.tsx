@@ -7,11 +7,17 @@ import Image5 from 'assets/images/Schedule/image_5.png';
 import ImagePhoto from 'assets/svg/Schedule/photo.svg';
 import Popap from 'components/Popap';
 import PopapContent from './PopalContent';
+import { Event } from 'types';
 import styles from './styles.module.scss';
 
-const Schedule = () => {
+type Props = {
+  data: Event[];
+  link: string;
+};
+
+const Schedule = ({ data, link }: Props) => {
   const onDownloadFile = () => {
-    window.open('yandex.ru', '_blank');
+    window.open(link, '_blank');
   };
   // const [isShowModal, setShowModal] = useState<boolean>(false);
   const [isShowPopap, setShowPopap] = useState<boolean>(false);
@@ -70,27 +76,29 @@ const Schedule = () => {
                 на 1 полугодие 2024 года
               </span>
             </div>
-            <button
-              type='button'
-              className={styles.schedule__btn}
-              onClick={onDownloadFile}
-            >
-              Скачать расписание
-              <svg
-                width='14'
-                height='14'
-                viewBox='0 0 14 14'
-                fill='none'
-                xmlns='http://www.w3.org/2000/svg'
+            {link && (
+              <button
+                type='button'
+                className={styles.schedule__btn}
+                onClick={onDownloadFile}
               >
-                <path
-                  d='M3 7.16675L7 10.7942L11 7.20189M7 1.16675V10.5953M1 13.1667H13'
-                  stroke='#8D8E91'
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                />
-              </svg>
-            </button>
+                Скачать расписание
+                <svg
+                  width='14'
+                  height='14'
+                  viewBox='0 0 14 14'
+                  fill='none'
+                  xmlns='http://www.w3.org/2000/svg'
+                >
+                  <path
+                    d='M3 7.16675L7 10.7942L11 7.20189M7 1.16675V10.5953M1 13.1667H13'
+                    stroke='#8D8E91'
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
+                  />
+                </svg>
+              </button>
+            )}
           </div>
           <div className={styles.schedule__table}>
             <div className={styles.schedule__table_wrapper}>
@@ -105,121 +113,70 @@ const Schedule = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>
-                      <div className={styles.schedule__table_col}>
-                        <span className={styles['schedule__table_text-l']}>
-                          Тренинг для тренеров
-                        </span>
-                        <button
-                          className={styles.schedule__table_btn}
-                          type='button'
-                          onClick={() => handleClick()}
-                        >
-                          ЗАПИСАТЬСЯ
-                        </button>
-                      </div>
-                    </td>
-                    <td>
-                      <div className={styles.schedule__table_col}>
-                        <div>
-                          <span className={styles['schedule__table_text-m']}>
-                            Группа 1
-                          </span>
-                          <span className={styles['schedule__table_text-s']}>
-                            20, 27 февраля, 4 марта
-                          </span>
-                        </div>
-                        <div>
-                          <span className={styles['schedule__table_text-m']}>
-                            Группа 2, Группа 3, Группа 4
-                          </span>
-                          <span className={styles['schedule__table_text-s']}>
-                            21,28 февраля, 5 марта, 21,28 февраля, 5 марта
-                          </span>
-                        </div>
-                      </div>
-                    </td>
-                    <td>
-                      <div>
-                        <span className={styles['schedule__table_text-m']}>
-                          09:00 – 17:00
-                        </span>
-                        <span className={styles['schedule__table_text-s']}>
-                          3 дня по 8 часов
-                        </span>
-                      </div>
-                    </td>
-                    <td>
-                      <div
-                        className={`${styles.schedule__table_col} ${styles['schedule__table_col-s']}`}
-                      >
-                        <img
-                          className={styles.schedule__table_img}
-                          src={ImagePhoto}
-                          alt='Фото'
-                        />
-                        <span className={styles['schedule__table_text-m']}>
-                          Ирина Гольцова
-                        </span>
-                        <span className={styles['schedule__table_text-s']}>
-                          приглашенный тренер
-                        </span>
-                      </div>
-                    </td>
-                    <td>
-                      <div className={styles['schedule__table_text-lm']}>
-                        <ul>
-                          <li>
-                            особенности обучения взрослых и эффективные способы
-                            донесения информации
-                          </li>
-                          <li>
-                            особенности обучения взрослых и эффективные способы
-                            донесения информации
-                          </li>
-                        </ul>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <div className={styles.schedule__table_col}>
-                        <span className={styles['schedule__table_text-l']}>
-                          Тренинг для тренеров
-                        </span>
-                        <button
-                          className={styles.schedule__table_btn}
-                          type='button'
-                          onClick={() => handleClick()}
-                        >
-                          ЗАПИСАТЬСЯ
-                        </button>
-                      </div>
-                    </td>
-                    <td>
-                      <div>
-                        <span className={styles['schedule__table_text-m']}>
-                          Группа 2, Группа 3, Группа 4
-                        </span>
-                        <span className={styles['schedule__table_text-s']}>
-                          21,28 февраля, 5 марта, 21,28 февраля, 5 марта
-                        </span>
-                      </div>
-                    </td>
-                    <td>
-                      <div>
-                        <span className={styles['schedule__table_text-m']}>
-                          09:00 – 17:00
-                        </span>
-                        <span className={styles['schedule__table_text-s']}>
-                          3 дня по 8 часов
-                        </span>
-                      </div>
-                    </td>
-                    <td>4</td>
-                    <td>4</td>
-                  </tr>
+                  {data.map((event, index) => {
+                    const srcPhoto = event.photo || ImagePhoto;
+                    return (
+                      <tr key={index}>
+                        <td>
+                          <div className={styles.schedule__table_col}>
+                            <span className={styles['schedule__table_text-l']}>
+                              {event.title}
+                            </span>
+                            <button
+                              className={styles.schedule__table_btn}
+                              type='button'
+                              onClick={() => handleClick()}
+                            >
+                              ЗАПИСАТЬСЯ
+                            </button>
+                          </div>
+                        </td>
+                        <td>
+                          <div>
+                            <span className={styles['schedule__table_text-m']}>
+                              {event.start_date_name}
+                            </span>
+                            <span className={styles['schedule__table_text-s']}>
+                              {event.start_date_desc}
+                            </span>
+                          </div>
+                        </td>
+                        <td>
+                          <div>
+                            <span className={styles['schedule__table_text-m']}>
+                              {event.time_name}
+                            </span>
+                            <span className={styles['schedule__table_text-s']}>
+                              {event.time_desc}
+                            </span>
+                          </div>
+                        </td>
+                        <td>
+                          <div
+                            className={`${styles.schedule__table_col} ${styles['schedule__table_col-s']}`}
+                          >
+                            <img
+                              className={styles.schedule__table_img}
+                              src={srcPhoto}
+                              alt='Фото'
+                            />
+                            <span className={styles['schedule__table_text-m']}>
+                              {event.fullname}
+                            </span>
+                            <span className={styles['schedule__table_text-s']}>
+                              {event.position_name}
+                            </span>
+                          </div>
+                        </td>
+                        <td>
+                          <div
+                            className={styles['schedule__table_text-lm']}
+                            dangerouslySetInnerHTML={{ __html: event.desc }}
+                          ></div>
+                        </td>
+                      </tr>
+                    );
+                  })}
                 </tbody>
               </table>
             </div>

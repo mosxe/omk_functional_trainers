@@ -1,0 +1,54 @@
+﻿{
+  "fetchData": {
+    "data": {
+      "materials": [
+        {
+          "type": "материал для скачивания",
+          "title": "Эмоциональная смелость",
+          "desc": "Питер Брегман. Манн, Иванов, 2018",
+          "is_download": "true",
+          "link": "http://localhost/download_file.html?file_id=7179197303563902064"
+        },
+        {
+          "type": "издательство АЛЬПИНА",
+          "title": "Эмоциональная смелость Эмоциональная смелость Эмоциональная смелость",
+          "desc": "Питер Брегман. Манн, Иванов, 2018 Питер Брегман. Манн, Иванов, 2018",
+          "is_download": "",
+          "link": "https://ya.ru"
+        },
+        {
+          "type": "материал для скачивания",
+          "title": "Эмоциональная смелость Эмоциональная смелость Эмоциональная смелость Эмоциональная смелость",
+          "desc": "Питер Брегман. Манн, Иванов, 2018 Питер Брегман. Манн, Иванов, 2018 Питер Брегман. Манн, Иванов, 2018 Питер Брегман. Манн, Иванов, 2018",
+          "is_download": "true",
+          "link": "http://localhost/download_file.html?file_id=7179197303563902064"
+        }
+      ],
+      "events": [
+        {
+          "id": "1111",
+          "title": "Тренинг для тренеров",
+          "start_date_name": "Группа 1 20 ",
+          "start_date_desc": "20 феврале, 4 марта",
+          "time_name": "09:00 - 17:00",
+          "time_desc": "3 дня 16 часов",
+          "photo": "",
+          "fullname": "Ирина Гольцова",
+          "position_name": "Ведущий тренер",
+          "desc": "<ul>\r\n<li>asdasdadasd</li>\r\n<li>asdasdadasd22 222</li>\r\n<li>asdasdadasd 333333</li>\r\n</ul>"
+        }
+      ],
+      "contacts": {
+        "photo": "https://coolsen.ru/wp-content/uploads/2021/06/42-7.jpg",
+        "fullname": "Юлия Орешкина",
+        "position_name": "Куратор проекта по развитию внутренних преподавателей",
+        "email": "ORESHKINA_IUN@omk.ru"
+      },
+      "link_model_competence": "asdasasdads",
+      "link_development_plan": "asdasd",
+      "link_events": "ddddddd"
+    },
+    "isError": false,
+    "errorMessage": ""
+  }
+}

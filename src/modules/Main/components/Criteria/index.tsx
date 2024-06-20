@@ -1,8 +1,9 @@
-﻿import styles from './styles.module.scss';
+﻿import { forwardRef } from 'react';
+import styles from './styles.module.scss';
 
-const Criteria = () => {
+const Criteria = forwardRef<HTMLDivElement>((_, ref) => {
   return (
-    <section className={styles.criteria}>
+    <section className={styles.criteria} ref={ref}>
       <div className={styles.criteria__wrapper}>
         <h2 className={styles.criteria__title}>
           <span className={styles.criteria__title_red}>Кто может</span>{' '}
@@ -79,6 +80,6 @@ const Criteria = () => {
       </div>
     </section>
   );
-};
+});
 
 export default Criteria;

@@ -19,7 +19,8 @@ export default defineConfig(({ mode }: ViteConfig) => {
       alias: {
         assets: '/src/assets',
         components: '/src/components',
-        modules: '/src/modules'
+        modules: '/src/modules',
+        types: '/src/types'
       }
     },
     plugins: [react()],
