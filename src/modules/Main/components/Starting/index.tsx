@@ -1,40 +1,44 @@
-﻿import { useState } from 'react';
+﻿import { useState, useEffect } from 'react';
 import Popap from 'components/Popap';
+import Form from './components/Form';
 import Image1 from 'assets/svg/Starting/number_1.svg';
 import Image2 from 'assets/svg/Starting/number_2.svg';
 import Image3 from 'assets/svg/Starting/number_3.svg';
 import Image4 from 'assets/svg/Starting/number_4.svg';
+import { ResponseForm } from 'types';
+import { getFetchForm, initialForm } from '../../utils';
 import styles from './styles.module.scss';
 
 const Starting = () => {
-  const formData = [1, 2];
-  const [form, setForm] = useState([]);
+  const [data, setData] = useState<ResponseForm>(initialForm);
+  const [isLoading, setLoading] = useState<boolean>(true);
+  const [isError, setError] = useState<boolean>(false);
   const [isShowPopap, setShowPopap] = useState<boolean>(false);
-  const [values, setValues] = useState<any>({});
+
+  // useEffect(() => {}, []);
 
   const onShowPopap = () => {
     setShowPopap(!isShowPopap);
   };
 
-  const onSubmit = (e: any) => {
-    e.preventDefault();
-
-    console.log(values);
-  };
-
-  const handleInputChange = (e, id) => {
-    const newForm = form.map((item) => {
-      return item.id === id ? { ...item, data: e.target.value } : item;
-    });
-
-    setForm(newForm);
-  };
-
-  const fieldChanged = (fieldId, value) => {
-    setValues((currentValues) => {
-      currentValues[fieldId] = value;
-      return currentValues;
-    });
+  const handleClick = () => {
+    setShowPopap(!isShowPopap);
+    if (!data.data.length) {
+      setLoading(true);
+      getFetchForm()
+        .then((res) => {
+          if (res.isError) {
+            setError(true);
+            return;
+          }
+          setData(res);
+        })
+        .catch((e) => {
+          console.log(e);
+          setError(true);
+        })
+        .finally(() => setLoading(false));
+    }
   };
 
   return (
@@ -63,7 +67,7 @@ const Starting = () => {
               <button
                 className={styles.starting__card_btn}
                 type='button'
-                onClick={onShowPopap}
+                onClick={handleClick}
               >
                 Заполнить анкету
               </button>
@@ -120,21 +124,8 @@ const Starting = () => {
           </div>
         </div>
       </section>
-      <Popap isShow={isShowPopap} onClose={onShowPopap}>
-        <form onSubmit={onSubmit}>
-          {formData.map((item, index) => {
-            return (
-              <input
-                key={index}
-                id={`${index}`}
-                name={`${index}`}
-                value={values[index]}
-                onChange={(e) => fieldChanged(index, e.target.value)}
-              />
-            );
-          })}
-          <button type='submit'>submit</button>
-        </form>
+      <Popap isShow={isShowPopap} onClose={onShowPopap} width={750}>
+        <Form isLoading={isLoading} isError={isError} data={data} />
       </Popap>
     </>
   );

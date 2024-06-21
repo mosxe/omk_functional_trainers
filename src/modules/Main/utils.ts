@@ -1,5 +1,5 @@
 ﻿import data from './mockData.json';
-import { ResponseData } from 'types';
+import { ResponseData, ResponseForm } from 'types';
 
 const mockFetchData = (data: any) => {
   return new Promise((resolve) => {
@@ -27,6 +27,12 @@ export const initialData = {
   errorMessage: ''
 };
 
+export const initialForm = {
+  data: [],
+  isError: false,
+  errorMessage: ''
+};
+
 export const getFetchData = async (): Promise<ResponseData> => {
   const urlParams = new URLSearchParams({
     custom_web_template_id: TEMPLATE_ID,
@@ -50,5 +56,31 @@ export const getFetchData = async (): Promise<ResponseData> => {
   } catch (e) {
     initialData.isError = true;
     return initialData;
+  }
+};
+
+export const getFetchForm = async (): Promise<ResponseForm> => {
+  const urlParams = new URLSearchParams({
+    custom_web_template_id: TEMPLATE_ID,
+    action: 'getDataForm'
+  });
+  const BASE_URL = window.location.origin;
+  const API_URL = BASE_URL + '/custom_web_template.html?' + urlParams;
+
+  try {
+    if (import.meta.env.DEV) {
+      const results = (await mockFetchData(data.fetchForm)) as ResponseForm;
+      return results;
+    }
+
+    const response = await fetch(API_URL);
+    if (!response.ok) {
+      throw Error(response.statusText);
+    }
+    const json = await response.json();
+    return json;
+  } catch (e) {
+    initialForm.isError = true;
+    return initialForm;
   }
 };

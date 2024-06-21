@@ -31,6 +31,19 @@ export interface Contact {
   email: string;
 }
 
+export interface Entry {
+  id: string;
+  title: string;
+}
+
+export interface Poll {
+  id: string;
+  title: string;
+  entries: Entry[];
+  type: 'select' | 'text';
+  is_comment: boolean;
+}
+
 export interface ResponseData extends Error {
   data: {
     materials: Material[];
@@ -40,4 +53,8 @@ export interface ResponseData extends Error {
     link_development_plan: string;
     link_events: string;
   };
+}
+
+export interface ResponseForm extends Error {
+  data: Poll[];
 }

@@ -1,32 +1,48 @@
-﻿import { useState, useEffect, useRef } from 'react';
+﻿import {
+  useState,
+  useEffect,
+  useRef,
+  forwardRef,
+  TextareaHTMLAttributes
+} from 'react';
 import styles from './styles.module.scss';
 
-const TextArea = () => {
-  const textareaRef = useRef<HTMLTextAreaElement | null>(null);
-  const [value, setValue] = useState<string>('');
+interface Props extends TextareaHTMLAttributes<HTMLTextAreaElement> {
+  placeholder?: string;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+  style?: React.CSSProperties;
+}
 
-  const hadnleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setValue(event.target.value);
-  };
+const TextArea = forwardRef(
+  ({ value, onChange, placeholder = '', style }: Props, ref) => {
+    const textareaRef = useRef<HTMLTextAreaElement | null>(null);
+    // const [value, setValue] = useState<string>('');
 
-  useEffect(() => {
-    if (textareaRef && textareaRef.current) {
-      textareaRef.current.style.height = 'auto';
-      const scrollHeight = textareaRef.current.scrollHeight;
-      textareaRef.current.style.height = scrollHeight + 'px';
-    }
-  }, [value]);
+    // const hadnleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    //   setValue(event.target.value);
+    // };
 
-  return (
-    <textarea
-      className={styles.textarea}
-      ref={textareaRef}
-      value={value}
-      onChange={hadnleChange}
-      placeholder='Введите текст сообщения...'
-      rows={1}
-    />
-  );
-};
+    useEffect(() => {
+      if (textareaRef && textareaRef.current) {
+        textareaRef.current.style.height = 'auto';
+        const scrollHeight = textareaRef.current.scrollHeight;
+        textareaRef.current.style.height = scrollHeight + 'px';
+      }
+    }, [value]);
+
+    return (
+      <textarea
+        className={styles.textarea}
+        ref={textareaRef}
+        value={value}
+        onChange={onChange}
+        placeholder={placeholder}
+        rows={1}
+        style={style}
+      />
+    );
+  }
+);
 
 export default TextArea;

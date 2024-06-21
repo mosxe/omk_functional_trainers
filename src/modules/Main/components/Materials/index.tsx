@@ -23,9 +23,19 @@ const Materials = ({ data }: Props) => {
           </div>
         </div>
         <div className={styles.materials__container}>
-          {data.map((material, index) => (
-            <Material data={material} key={index} />
-          ))}
+          {data.map((material, index) => {
+            const style: Record<string, string> = {};
+            const isEvenData = data.length % 2;
+            if (isEvenData > 0 && index === data.length - 1) {
+              style.borderBottom = 'none';
+            } else if (
+              isEvenData === 0 &&
+              (index === data.length - 1 || index === data.length - 2)
+            ) {
+              style.borderBottom = 'none';
+            }
+            return <Material data={material} key={index} style={style} />;
+          })}
         </div>
       </div>
     </section>
