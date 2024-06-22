@@ -6,7 +6,7 @@ const Alert = () => {
   return (
     <div>
       <ToastContainer
-        autoClose={250000}
+        autoClose={2500}
         toastClassName={styles.toast}
         hideProgressBar
         closeOnClick

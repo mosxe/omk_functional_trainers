@@ -58,3 +58,9 @@ export interface ResponseData extends Error {
 export interface ResponseForm extends Error {
   data: Poll[];
 }
+
+export interface FormData {
+  id: string;
+  entries: Record<string, string | boolean>[];
+  comments: string;
+}

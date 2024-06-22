@@ -1,50 +1,52 @@
 ﻿import { useState } from 'react';
 import TextArea from 'components/TextArea';
+import { LoaderContent } from 'components/Loader';
+import PopapAlert from './PopapAlert';
 import Image1 from 'assets/svg/Program/card_1.svg';
 import Image2 from 'assets/svg/Program/card_2.svg';
 import Image3 from 'assets/svg/Program/card_3.svg';
 import Image4 from 'assets/svg/Program/card_4.svg';
-import Image5 from 'assets/svg/Program/icon.svg';
+import { sendRequest } from '../../utils';
 import styles from './styles.module.scss';
 
 type Props = {
   id: number | null;
-  onClick: () => void;
+  onClose: (isError: boolean) => void;
   link: string;
 };
 
-const PopapContent = ({ id, onClick, link }: Props) => {
+const PopapContent = ({ id, onClose, link }: Props) => {
   const [isShowAlert, setShowAlert] = useState<boolean>(false);
+  const [isLoading, setLoading] = useState<boolean>(false);
+
   const handleClick = () => {
-    //Идет запрос на сервер
-    setShowAlert(true);
+    setLoading(true);
+    sendRequest('asdas')
+      .then((res) => {
+        if (res.isError) {
+          onClose(true);
+        } else {
+          setShowAlert(true);
+        }
+        // onClose(res.isError);
+      })
+      .catch((e) => {
+        console.log(e);
+        // onClose(true);
+      })
+      .finally(() => setLoading(false));
   };
 
   const onDownloadFile = () => {
     window.open(link, '_blank');
-    onClick();
   };
 
   if (isShowAlert) {
     return (
-      <div className={styles['program__popap-wrapper']}>
-        <div className={styles['program__popap-header']}>
-          <img
-            className={styles['program__popap-image']}
-            src={Image5}
-            alt='Картинка'
-          />
-          <h2 className={styles['program__popap-title']}>
-            Спасибо! Ваша заявка отправлена куратору!
-          </h2>
-        </div>
-        <div className={styles['program__popap-content']}>
-          <span className={styles['program__popap-text']}>
-            В течение 3 рабочих дней с Вами свяжется куратор проекта, не
-            пропустите письмо по электронной почте!
-          </span>
-        </div>
-      </div>
+      <PopapAlert
+        title='Спасибо! Ваша заявка отправлена куратору!'
+        text='В течение 3 рабочих дней с Вами свяжется куратор проекта, не пропустите письмо по электронной почте!'
+      />
     );
   }
 
@@ -52,6 +54,7 @@ const PopapContent = ({ id, onClick, link }: Props) => {
     case 1:
       return (
         <div className={styles['program__popap-wrapper']}>
+          {isLoading && <LoaderContent />}
           <div className={styles['program__popap-header']}>
             <img
               className={styles['program__popap-image']}
@@ -82,6 +85,7 @@ const PopapContent = ({ id, onClick, link }: Props) => {
     case 2:
       return (
         <div className={styles['program__popap-wrapper']}>
+          {isLoading && <LoaderContent />}
           <div className={styles['program__popap-header']}>
             <img
               className={styles['program__popap-image']}
@@ -153,6 +157,7 @@ const PopapContent = ({ id, onClick, link }: Props) => {
     case 4:
       return (
         <div className={styles['program__popap-wrapper']}>
+          {isLoading && <LoaderContent />}
           <div className={styles['program__popap-header']}>
             <img
               className={styles['program__popap-image']}

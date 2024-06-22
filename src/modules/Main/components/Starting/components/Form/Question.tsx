@@ -1,4 +1,5 @@
-﻿import { useFormContext, Controller } from 'react-hook-form';
+﻿import { useState } from 'react';
+import { useFormContext, Controller } from 'react-hook-form';
 import Checkbox from 'components/Checkbox';
 import TextArea from 'components/TextArea';
 import { Poll } from 'types';
@@ -10,6 +11,7 @@ type Props = {
 };
 const Question = ({ data, index }: Props) => {
   const { register, control } = useFormContext();
+  const [isShowTextArea, setShowTextArea] = useState<boolean>(false);
 
   return (
     <div className={styles.form__item}>
@@ -31,7 +33,7 @@ const Question = ({ data, index }: Props) => {
               defaultValue=''
               render={({ field: { onChange, value } }) => (
                 <TextArea
-                  {...(register(data.id), { required: true })}
+                  {...register(data.id)}
                   value={value}
                   onChange={onChange}
                   placeholder='Введите текст сообщения...'
@@ -46,7 +48,6 @@ const Question = ({ data, index }: Props) => {
                   key={entry.id}
                   control={control}
                   name={`${data.id}.${indexEntry}._${entry.id}`}
-                  rules={{ required: true }}
                   defaultValue={false}
                   render={({ field: { onChange, value } }) => (
                     <Checkbox
@@ -60,37 +61,38 @@ const Question = ({ data, index }: Props) => {
               );
             })}
           {data.type === 'select' && data.is_comment && (
-            <>
-              <Controller
-                control={control}
-                name={`${data.id}.${index}.other`}
-                rules={{ required: true }}
-                defaultValue={false}
-                render={({ field: { onChange, value } }) => (
-                  <Checkbox
-                    id={`${data.id}_other`}
-                    checked={value}
-                    label='другое'
-                    onChange={onChange}
-                  />
-                )}
-              />
-              <Controller
-                control={control}
-                name={`${data.id}.${index}.text`}
-                rules={{ required: true }}
-                defaultValue=''
-                render={({ field: { onChange, value } }) => (
-                  <TextArea
-                    {...register(`${data.id}.${index}.text`)}
-                    value={value}
-                    onChange={onChange}
-                    style={{ marginTop: '8px' }}
-                    placeholder='Здесь укажите, что именно...'
-                  />
-                )}
-              />
-            </>
+            <Controller
+              control={control}
+              name={`${data.id}.${data.entries.length}.other`}
+              defaultValue={false}
+              render={({ field: { onChange, value } }) => (
+                <Checkbox
+                  id={`${data.id}_other`}
+                  checked={value}
+                  label='другое'
+                  onChange={(e) => {
+                    setShowTextArea(!isShowTextArea);
+                    onChange(e);
+                  }}
+                />
+              )}
+            />
+          )}
+          {isShowTextArea && (
+            <Controller
+              control={control}
+              name={`${data.id}.${data.entries.length}.text`}
+              defaultValue=''
+              render={({ field: { onChange, value } }) => (
+                <TextArea
+                  {...register(`${data.id}.${data.entries.length}.text`)}
+                  value={value}
+                  onChange={onChange}
+                  style={{ marginTop: '8px' }}
+                  placeholder='Здесь укажите, что именно...'
+                />
+              )}
+            />
           )}
         </div>
       </div>

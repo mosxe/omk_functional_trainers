@@ -1,6 +1,9 @@
-﻿import { useState, useEffect } from 'react';
+﻿import { useState } from 'react';
 import Popap from 'components/Popap';
 import Form from './components/Form';
+import Alert from 'components/Alert';
+import PopapAlert from '../Program/PopapAlert';
+import { toast } from 'react-toastify';
 import Image1 from 'assets/svg/Starting/number_1.svg';
 import Image2 from 'assets/svg/Starting/number_2.svg';
 import Image3 from 'assets/svg/Starting/number_3.svg';
@@ -14,14 +17,14 @@ const Starting = () => {
   const [isLoading, setLoading] = useState<boolean>(true);
   const [isError, setError] = useState<boolean>(false);
   const [isShowPopap, setShowPopap] = useState<boolean>(false);
-
-  // useEffect(() => {}, []);
+  const [isShowAlert, setShowAlert] = useState<boolean>(false);
 
   const onShowPopap = () => {
     setShowPopap(!isShowPopap);
   };
 
   const handleClick = () => {
+    setShowAlert(false);
     setShowPopap(!isShowPopap);
     if (!data.data.length) {
       setLoading(true);
@@ -38,6 +41,15 @@ const Starting = () => {
           setError(true);
         })
         .finally(() => setLoading(false));
+    }
+  };
+
+  const onCloseForm = (isErrorFetch: boolean) => {
+    if (isErrorFetch) {
+      setShowPopap(false);
+      toast('Произошла ошибка');
+    } else {
+      setShowAlert(true);
     }
   };
 
@@ -125,8 +137,22 @@ const Starting = () => {
         </div>
       </section>
       <Popap isShow={isShowPopap} onClose={onShowPopap} width={750}>
-        <Form isLoading={isLoading} isError={isError} data={data} />
+        {!isShowAlert ? (
+          <Form
+            isLoading={isLoading}
+            isError={isError}
+            data={data}
+            onClose={onCloseForm}
+          />
+        ) : (
+          <PopapAlert
+            title='Спасибо за заполнение формы!</br> Ваши ответы отправлены!'
+            text='В течение 3 рабочих дней с Вами свяжется куратор проекта, не пропустите письмо по электронной почте.'
+            isImageLarge
+          />
+        )}
       </Popap>
+      <Alert />
     </>
   );
 };

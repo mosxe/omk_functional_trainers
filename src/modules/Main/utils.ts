@@ -1,5 +1,15 @@
 ﻿import data from './mockData.json';
-import { ResponseData, ResponseForm } from 'types';
+import { ResponseData, ResponseForm, Error as IError, FormData } from 'types';
+
+const getUrl = (action: string) => {
+  const urlParams = new URLSearchParams({
+    custom_web_template_id: TEMPLATE_ID,
+    action
+  });
+  const BASE_URL = window.location.origin;
+  const API_URL = BASE_URL + '/custom_web_template.html?' + urlParams;
+  return API_URL;
+};
 
 const mockFetchData = (data: any) => {
   return new Promise((resolve) => {
@@ -34,13 +44,7 @@ export const initialForm = {
 };
 
 export const getFetchData = async (): Promise<ResponseData> => {
-  const urlParams = new URLSearchParams({
-    custom_web_template_id: TEMPLATE_ID,
-    action: 'getData'
-  });
-  const BASE_URL = window.location.origin;
-  const API_URL = BASE_URL + '/custom_web_template.html?' + urlParams;
-
+  const API_URL = getUrl('getData');
   try {
     if (import.meta.env.DEV) {
       const results = (await mockFetchData(data.fetchData)) as ResponseData;
@@ -48,9 +52,11 @@ export const getFetchData = async (): Promise<ResponseData> => {
     }
 
     const response = await fetch(API_URL);
+
     if (!response.ok) {
       throw Error(response.statusText);
     }
+
     const json = await response.json();
     return json;
   } catch (e) {
@@ -60,13 +66,7 @@ export const getFetchData = async (): Promise<ResponseData> => {
 };
 
 export const getFetchForm = async (): Promise<ResponseForm> => {
-  const urlParams = new URLSearchParams({
-    custom_web_template_id: TEMPLATE_ID,
-    action: 'getDataForm'
-  });
-  const BASE_URL = window.location.origin;
-  const API_URL = BASE_URL + '/custom_web_template.html?' + urlParams;
-
+  const API_URL = getUrl('getDataForm');
   try {
     if (import.meta.env.DEV) {
       const results = (await mockFetchData(data.fetchForm)) as ResponseForm;
@@ -74,13 +74,75 @@ export const getFetchForm = async (): Promise<ResponseForm> => {
     }
 
     const response = await fetch(API_URL);
+
     if (!response.ok) {
       throw Error(response.statusText);
     }
+
     const json = await response.json();
     return json;
   } catch (e) {
     initialForm.isError = true;
     return initialForm;
+  }
+};
+
+export const postFormData = async (data: FormData[]): Promise<IError> => {
+  const API_URL = getUrl('postFormData');
+  const requestOptions = {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+  };
+
+  try {
+    if (import.meta.env.DEV) {
+      const results = (await mockFetchData({
+        isError: false,
+        errorMessage: ''
+      })) as IError;
+      return results;
+    }
+
+    const response = await fetch(API_URL, requestOptions);
+
+    if (!response.ok) {
+      throw Error(response.statusText);
+    }
+
+    const json = await response.json();
+    return json;
+  } catch (e) {
+    return { isError: true, errorMessage: '' };
+  }
+};
+
+export const sendRequest = async (data: any): Promise<IError> => {
+  const API_URL = getUrl('sendRequest');
+  const requestOptions = {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+  };
+
+  try {
+    if (import.meta.env.DEV) {
+      const results = (await mockFetchData({
+        isError: true,
+        errorMessage: ''
+      })) as IError;
+      return results;
+    }
+
+    const response = await fetch(API_URL, requestOptions);
+
+    if (!response.ok) {
+      throw Error(response.statusText);
+    }
+
+    const json = await response.json();
+    return json;
+  } catch (e) {
+    return { isError: true, errorMessage: '' };
   }
 };

@@ -1,4 +1,6 @@
 ﻿import { useState } from 'react';
+import Alert from 'components/Alert';
+import { toast } from 'react-toastify';
 import Image1 from 'assets/images/Schedule/image_1.png';
 import Image2 from 'assets/images/Schedule/image_2.png';
 import Image3 from 'assets/images/Schedule/image_3.png';
@@ -35,6 +37,7 @@ const Schedule = ({ data, link }: Props) => {
     onShowPopapHandler();
   };
 
+  // toast('Произошла ошибка');
   return (
     <>
       <section className={styles.schedule}>
@@ -186,6 +189,7 @@ const Schedule = ({ data, link }: Props) => {
       <Popap isShow={isShowPopap} onClose={onShowPopapHandler}>
         <PopapContent onClick={onShowPopapHandler} />
       </Popap>
+      <Alert />
     </>
   );
 };

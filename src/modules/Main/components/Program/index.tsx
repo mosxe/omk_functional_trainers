@@ -1,8 +1,9 @@
 ﻿import { useState } from 'react';
 import Modal from 'components/Modal';
+import Popap from 'components/Popap';
+import { toast } from 'react-toastify';
 import ModalContent from './ModalContent';
 import PopapContent from './PopalContent';
-import Popap from 'components/Popap';
 import Image1 from 'assets/svg/Program/card_1.svg';
 import Image2 from 'assets/svg/Program/card_2.svg';
 import Image3 from 'assets/svg/Program/card_3.svg';
@@ -29,6 +30,13 @@ const Program = ({ link }: Props) => {
   const handleClick = (index: number) => {
     setActiveIndex(index);
     onShowModalHandler();
+  };
+
+  const onClosePopap = (isErrorFetch: boolean) => {
+    setShowPopap(false);
+    if (isErrorFetch) {
+      toast('Произошла ошибка');
+    }
   };
 
   return (
@@ -226,11 +234,7 @@ const Program = ({ link }: Props) => {
         />
       </Modal>
       <Popap isShow={isShowPopap} onClose={onShowPopapHandler}>
-        <PopapContent
-          id={activeIndex}
-          onClick={onShowPopapHandler}
-          link={link}
-        />
+        <PopapContent id={activeIndex} onClose={onClosePopap} link={link} />
       </Popap>
     </>
   );
