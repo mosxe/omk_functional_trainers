@@ -3,6 +3,7 @@ import Header from 'components/Header';
 import Footer from 'components/Footer';
 import Loader from 'components/Loader';
 import Error from 'components/Error';
+import Alert from 'components/Alert';
 import Advantages from './components/Advantages';
 import Definitions from './components/Definitions';
 import Importants from './components/Importants';
@@ -95,6 +96,7 @@ const Main = () => {
         <Contacts data={data.data.contacts} />
       </main>
       <Footer />
+      <Alert />
     </>
   );
 };

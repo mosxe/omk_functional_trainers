@@ -2,20 +2,33 @@
 import { LoaderContent } from 'components/Loader';
 import PopapAlert from '../Program/PopapAlert';
 import Image1 from 'assets/svg/Program/card_1.svg';
+import { sendRequest } from '../../utils';
 import styles from '../Program/styles.module.scss';
 
 type Props = {
-  onClick: () => void;
+  id: string;
+  onClose: (isError: boolean) => void;
 };
 
-const PopapContent = ({ onClick }: Props) => {
+const PopapContent = ({ id, onClose }: Props) => {
   const [isShowAlert, setShowAlert] = useState<boolean>(false);
   const [isLoading, setLoading] = useState<boolean>(false);
 
   const handleClick = () => {
-    onClick();
-    //Идет запрос на сервер
-    setShowAlert(true);
+    setLoading(true);
+    sendRequest({ type: 'event', text: id })
+      .then((res) => {
+        if (res.isError) {
+          onClose(true);
+        } else {
+          setShowAlert(true);
+        }
+      })
+      .catch((e) => {
+        console.log(e);
+        onClose(true);
+      })
+      .finally(() => setLoading(false));
   };
 
   if (isShowAlert) {

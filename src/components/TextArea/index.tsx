@@ -1,10 +1,4 @@
-﻿import {
-  useState,
-  useEffect,
-  useRef,
-  forwardRef,
-  TextareaHTMLAttributes
-} from 'react';
+﻿import { useEffect, useRef, forwardRef, TextareaHTMLAttributes } from 'react';
 import styles from './styles.module.scss';
 
 interface Props extends TextareaHTMLAttributes<HTMLTextAreaElement> {
@@ -17,11 +11,6 @@ interface Props extends TextareaHTMLAttributes<HTMLTextAreaElement> {
 const TextArea = forwardRef(
   ({ value, onChange, placeholder = '', style }: Props, ref) => {
     const textareaRef = useRef<HTMLTextAreaElement | null>(null);
-    // const [value, setValue] = useState<string>('');
-
-    // const hadnleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-    //   setValue(event.target.value);
-    // };
 
     useEffect(() => {
       if (textareaRef && textareaRef.current) {

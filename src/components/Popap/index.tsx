@@ -21,11 +21,7 @@ const Popap = ({ isShow, onClose, children, width }: Props) => {
   useEffect(() => {
     if (isShow) {
       setRender(true);
-      // document.body.style.overflow = 'hidden';
     }
-    return () => {
-      // document.body.style.overflow = 'auto';
-    };
   }, [isShow]);
 
   const handleUserKeyPress = useCallback(
@@ -37,13 +33,26 @@ const Popap = ({ isShow, onClose, children, width }: Props) => {
     [onClose]
   );
 
+  // const clickOutside = useCallback(
+  //   (e: any) => {
+  //     e.stopPropagation();
+  //     if (popapRef.current && !popapRef.current.contains(e.target) && isShow) {
+  //       onClose(false);
+  //     }
+  //   },
+  //   [onClose, isShow]
+  // );
+
   useEffect(() => {
     if (isShow) {
       window.addEventListener('keydown', handleUserKeyPress);
+      // window.addEventListener('mousedown', clickOutside);
     }
     return () => {
       window.removeEventListener('keydown', handleUserKeyPress);
+      // window.removeEventListener('mousedown', clickOutside);
     };
+    // }, [clickOutside, handleUserKeyPress, isShow]);
   }, [handleUserKeyPress, isShow]);
 
   const onAnimationEnd = () => {

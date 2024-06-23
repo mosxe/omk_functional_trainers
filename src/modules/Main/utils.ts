@@ -1,5 +1,12 @@
 ﻿import data from './mockData.json';
-import { ResponseData, ResponseForm, Error as IError, FormData } from 'types';
+import {
+  ResponseData,
+  ResponseForm,
+  Error as IError,
+  FormData,
+  Type,
+  Request
+} from 'types';
 
 const getUrl = (action: string) => {
   const urlParams = new URLSearchParams({
@@ -117,7 +124,7 @@ export const postFormData = async (data: FormData[]): Promise<IError> => {
   }
 };
 
-export const sendRequest = async (data: any): Promise<IError> => {
+export const sendRequest = async (data: Request): Promise<IError> => {
   const API_URL = getUrl('sendRequest');
   const requestOptions = {
     method: 'POST',
@@ -128,7 +135,7 @@ export const sendRequest = async (data: any): Promise<IError> => {
   try {
     if (import.meta.env.DEV) {
       const results = (await mockFetchData({
-        isError: true,
+        isError: false,
         errorMessage: ''
       })) as IError;
       return results;

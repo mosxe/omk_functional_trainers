@@ -1,5 +1,4 @@
 ﻿import { useState } from 'react';
-import Alert from 'components/Alert';
 import { toast } from 'react-toastify';
 import Image1 from 'assets/images/Schedule/image_1.png';
 import Image2 from 'assets/images/Schedule/image_2.png';
@@ -18,23 +17,27 @@ type Props = {
 };
 
 const Schedule = ({ data, link }: Props) => {
-  const onDownloadFile = () => {
-    window.open(link, '_blank');
-  };
-  // const [isShowModal, setShowModal] = useState<boolean>(false);
   const [isShowPopap, setShowPopap] = useState<boolean>(false);
-  // const [activeIndex, setActiveIndex] = useState<number>(1);
-
-  // const onShowModalHandler = () => {
-  //   setShowModal(!isShowModal);
-  // };
+  const [eventId, setEventId] = useState<string>('');
 
   const onShowPopapHandler = () => {
     setShowPopap(!isShowPopap);
   };
 
-  const handleClick = () => {
+  const handleClick = (id: string) => {
+    setEventId(id);
     onShowPopapHandler();
+  };
+
+  const onDownloadFile = () => {
+    window.open(link, '_blank');
+  };
+
+  const onClosePopap = (isErrorFetch: boolean) => {
+    setShowPopap(false);
+    if (isErrorFetch) {
+      toast('Произошла ошибка');
+    }
   };
 
   // toast('Произошла ошибка');
@@ -128,7 +131,7 @@ const Schedule = ({ data, link }: Props) => {
                             <button
                               className={styles.schedule__table_btn}
                               type='button'
-                              onClick={() => handleClick()}
+                              onClick={() => handleClick(event.id)}
                             >
                               ЗАПИСАТЬСЯ
                             </button>
@@ -187,9 +190,8 @@ const Schedule = ({ data, link }: Props) => {
         </div>
       </section>
       <Popap isShow={isShowPopap} onClose={onShowPopapHandler}>
-        <PopapContent onClick={onShowPopapHandler} />
+        <PopapContent onClose={onClosePopap} id={eventId} />
       </Popap>
-      <Alert />
     </>
   );
 };

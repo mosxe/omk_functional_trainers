@@ -3,42 +3,41 @@ import TextArea from 'components/TextArea';
 import { LoaderContent } from 'components/Loader';
 import PopapAlert from './PopapAlert';
 import Image1 from 'assets/svg/Program/card_1.svg';
-import Image2 from 'assets/svg/Program/card_2.svg';
 import Image3 from 'assets/svg/Program/card_3.svg';
 import Image4 from 'assets/svg/Program/card_4.svg';
 import { sendRequest } from '../../utils';
+import { Type } from 'types';
 import styles from './styles.module.scss';
 
 type Props = {
   id: number | null;
   onClose: (isError: boolean) => void;
-  link: string;
 };
 
-const PopapContent = ({ id, onClose, link }: Props) => {
+const PopapContent = ({ id, onClose }: Props) => {
   const [isShowAlert, setShowAlert] = useState<boolean>(false);
   const [isLoading, setLoading] = useState<boolean>(false);
+  const [textValue, setTextValue] = useState<string>('');
 
-  const handleClick = () => {
+  const handleClick = (type: Type) => {
     setLoading(true);
-    sendRequest('asdas')
+    sendRequest({ type, text: textValue })
       .then((res) => {
         if (res.isError) {
           onClose(true);
         } else {
           setShowAlert(true);
         }
-        // onClose(res.isError);
       })
       .catch((e) => {
         console.log(e);
-        // onClose(true);
+        onClose(true);
       })
       .finally(() => setLoading(false));
   };
 
-  const onDownloadFile = () => {
-    window.open(link, '_blank');
+  const onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setTextValue(e.target.value);
   };
 
   if (isShowAlert) {
@@ -71,12 +70,12 @@ const PopapContent = ({ id, onClose, link }: Props) => {
               диагностике. Если вопросов нет, просто нажмите кнопку “Записаться”
               и ваш запрос будет отправлен.
             </span>
-            <TextArea />
+            <TextArea value={textValue} onChange={onChange} />
           </div>
           <button
             className={styles['program__popap-btn']}
             type='button'
-            onClick={handleClick}
+            onClick={() => handleClick('diagnostics')}
           >
             Записаться
           </button>
@@ -102,59 +101,18 @@ const PopapContent = ({ id, onClose, link }: Props) => {
               тренингу. Если вопросов нет, просто нажмите кнопку “Записаться” и
               ваш запрос будет отправлен.
             </span>
-            <TextArea />
+            <TextArea value={textValue} onChange={onChange} />
           </div>
           <button
             className={styles['program__popap-btn']}
             type='button'
-            onClick={handleClick}
+            onClick={() => handleClick('training')}
           >
             Записаться
           </button>
         </div>
       );
     case 3:
-      return (
-        <div className={styles['program__popap-wrapper']}>
-          <div className={styles['program__popap-header']}>
-            <img
-              className={styles['program__popap-image']}
-              src={Image2}
-              alt='Картинка'
-            />
-          </div>
-          <div className={styles['program__popap-content']}>
-            <span
-              className={`${styles['program__popap-text']} ${styles['program__popap-text-gray']}`}
-            >
-              Чтобы скачать план индивидуального развития нажмите кнопку
-            </span>
-          </div>
-          <button
-            className={styles['program__popap-btn']}
-            type='button'
-            onClick={onDownloadFile}
-          >
-            <svg
-              width='21'
-              height='21'
-              viewBox='0 0 21 21'
-              fill='none'
-              xmlns='http://www.w3.org/2000/svg'
-            >
-              <path
-                d='M4.16667 10.5L10.5 16.2434L16.8333 10.5556M10.5 1V15.9286M1 20H20'
-                stroke='white'
-                stroke-width='2'
-                strokeLinecap='round'
-                strokeLinejoin='round'
-              />
-            </svg>
-            скачать план развития
-          </button>
-        </div>
-      );
-    case 4:
       return (
         <div className={styles['program__popap-wrapper']}>
           {isLoading && <LoaderContent />}
@@ -174,12 +132,12 @@ const PopapContent = ({ id, onClose, link }: Props) => {
               сертификации. Если вопросов нет, просто нажмите кнопку
               “Записаться” и ваш запрос будет отправлен.
             </span>
-            <TextArea />
+            <TextArea value={textValue} onChange={onChange} />
           </div>
           <button
             className={styles['program__popap-btn']}
             type='button'
-            onClick={handleClick}
+            onClick={() => handleClick('certification')}
           >
             Записаться
           </button>

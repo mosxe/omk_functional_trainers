@@ -70,11 +70,39 @@
     }
 
     &_text {
+      flex-grow: 1;
       font-size: 14px;
       font-weight: 400;
       line-height: 17.5px;
       margin: 0px !important;
       color: var(--page-color-link);
+    }
+
+    &_link {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 17.5px;
+      margin: 0px !important;
+      height: 26px;
+      color: rgba(2, 82, 122, 1);
+      background-color: transparent !important;
+      padding: 0px;
+      border: none !important;
+      text-decoration: underline;
+      outline: none !important;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: color 0.3s ease;
+
+      &:hover {
+        background-color: transparent !important;
+        color: var(--page-color-red) !important;
+      }
+
+      &:active {
+        background-color: transparent !important;
+        color: var(--page-color-dark-blue) !important;
+      }
     }
 
     &_btn {
@@ -143,6 +171,11 @@
 
   &__modal-content {
     margin-bottom: 10px;
+
+    & ul,
+    ol {
+      margin: 0px !important;
+    }
   }
 
   &__modal-title {

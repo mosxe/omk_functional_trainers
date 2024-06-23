@@ -1,7 +1,6 @@
 ﻿import { useState } from 'react';
 import Popap from 'components/Popap';
 import Form from './components/Form';
-import Alert from 'components/Alert';
 import PopapAlert from '../Program/PopapAlert';
 import { toast } from 'react-toastify';
 import Image1 from 'assets/svg/Starting/number_1.svg';
@@ -152,7 +151,6 @@ const Starting = () => {
           />
         )}
       </Popap>
-      <Alert />
     </>
   );
 };

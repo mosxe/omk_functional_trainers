@@ -64,3 +64,10 @@ export interface FormData {
   entries: Record<string, string | boolean>[];
   comments: string;
 }
+
+export type Type = 'diagnostics' | 'training' | 'certification' | 'event';
+
+export interface Request {
+  type: Type;
+  text: string;
+}
