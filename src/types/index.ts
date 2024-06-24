@@ -65,7 +65,7 @@ export interface FormData {
   comments: string;
 }
 
-export type Type = 'diagnostics' | 'training' | 'certification' | 'event';
+export type Type = 'diagnostics' | 'training' | 'certification';
 
 export interface Request {
   type: Type;
