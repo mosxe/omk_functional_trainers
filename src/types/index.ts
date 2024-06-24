@@ -12,7 +12,7 @@ export interface Material {
 }
 
 export interface Event {
-  id: string;
+  link: string;
   title: string;
   start_date_name: string;
   start_date_desc: string;
