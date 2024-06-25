@@ -21,7 +21,7 @@ const Question = ({ data, index }: Props) => {
           <div className={styles.form__item_text}>{data.title}</div>
           {data.type === 'select' && (
             <div className={styles.form__item_help}>
-              (выделите один или несколько пунктов)
+              (выберите один или несколько пунктов)
             </div>
           )}
         </div>

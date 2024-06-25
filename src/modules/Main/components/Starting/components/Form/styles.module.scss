@@ -118,3 +118,42 @@
     }
   }
 }
+
+@media screen and (max-width: 576px) {
+  .form {
+    gap: 20px;
+
+    &__header {
+      margin-bottom: 4px;
+
+      & h2 {
+        font-size: 16px;
+        line-height: 21.6px;
+      }
+    }
+
+    &__text {
+      font-size: 14px;
+      line-height: 18.9px;
+    }
+
+    &__btn {
+      margin-top: 4px !important;
+    }
+
+    &__item_header {
+      font-size: 14px;
+      line-height: 18.9px;
+    }
+
+    &__item_text {
+      font-size: 14px;
+      line-height: 18.2px;
+    }
+
+    &__item_help {
+      font-size: 14px;
+      line-height: 18.2px;
+    }
+  }
+}

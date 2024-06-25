@@ -111,7 +111,7 @@ const Schedule = ({ data, link }: Props) => {
                             <button
                               className={styles.schedule__table_btn}
                               type='button'
-                              onClick={() => handleClick(event.id)}
+                              onClick={() => handleClick(event.link)}
                             >
                               ЗАПИСАТЬСЯ
                             </button>

@@ -1,6 +1,6 @@
 ﻿.loader {
   position: absolute;
-  top: 50%;
+  top: calc(50% - 30px);
   left: calc(50% - 30px);
   transform: translate(-50%, -50%);
   width: 60px;
@@ -28,7 +28,7 @@
 
 .loader-content {
   position: absolute;
-  top: 50%;
+  top: calc(50% - 30px);
   left: calc(50% - 30px);
   transform: translate(-50%, -50%);
   width: 60px;

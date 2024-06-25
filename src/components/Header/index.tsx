@@ -1,42 +1,20 @@
-﻿// import { useWindowSize } from 'hooks/useWindowSize';
-// import HeaderConditionImage from 'assets/images/header_condition.jpg';
+﻿import { useWindowSize } from 'hooks/useWindowSize';
 import HeaderImage from 'assets/images/header.png';
-// import HeaderImageMobile from 'assets/images/header_mobile.jpg';
-// import HeaderMainImageMobile from 'assets/images/header_main_mobile.jpg';
+import HeaderImageMobile from 'assets/images/header_mobile.png';
 import styles from './styles.module.scss';
 
 type Props = {
   onClick: (isTeaching: boolean) => void;
 };
 const Header = ({ onClick }: Props) => {
-  // const [width] = useWindowSize();
-  // const image = isMain ? HeaderImage : HeaderConditionImage;
-
-  // const getContent = () => {
-  //   if (width < 767 && !isMain) {
-  //     return (
-  //       <div className={styles.header__image}>
-  //         <img src={HeaderImageMobile} alt='Картинка' />
-  //       </div>
-  //     );
-  //   }
-
-  //   if (width < 767 && isMain) {
-  //     return (
-  //       <div className={styles.header__image}>
-  //         <img src={HeaderMainImageMobile} alt='Картинка' />
-  //       </div>
-  //     );
-  //   }
-
-  //   return <img src={image} alt='Картинка' />;
-  // };
+  const [width] = useWindowSize();
+  const srcImage = width < 768 ? HeaderImageMobile : HeaderImage;
 
   return (
     <div className={styles.header}>
       <div className={styles.header__wrapper}>
         <div className={styles.header__image}>
-          <img src={HeaderImage} alt='Картинка' />
+          <img src={srcImage} alt='Картинка' />
         </div>
         <div className={styles.header__container}>
           <h1 className={styles.header__title}>

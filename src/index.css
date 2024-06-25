@@ -37,6 +37,10 @@
   box-sizing: border-box;
 }
 
+body {
+  margin: 0px;
+}
+
 #content.page-content {
   width: 100% !important;
   display: block;

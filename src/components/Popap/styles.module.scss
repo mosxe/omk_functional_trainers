@@ -132,13 +132,18 @@
   }
 }
 
+@media screen and (max-width: 767px) {
+  .popap__wrapper {
+    padding: 20px;
+  }
+}
+
 @media screen and (max-width: 576px) {
   .popap__wrapper {
     padding: 16px;
   }
 
   .popap__header {
-    // overflow-y: initial;
     padding-bottom: 0px;
     margin-bottom: 10px;
 

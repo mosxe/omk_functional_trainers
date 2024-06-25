@@ -20,7 +20,8 @@ export default defineConfig(({ mode }: ViteConfig) => {
         assets: '/src/assets',
         components: '/src/components',
         modules: '/src/modules',
-        types: '/src/types'
+        types: '/src/types',
+        hooks: '/src/hooks'
       }
     },
     plugins: [react()],

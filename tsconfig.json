@@ -18,7 +18,8 @@
       "assets/*": ["assets/*"],
       "components/*": ["components/*"],
       "modules/*": ["modules/*"],
-      "types/*": ["types/*"]
+      "types/*": ["types/*"],
+      "hooks/*": ["hooks/*"]
     },
 
     /* Linting */

@@ -303,3 +303,20 @@
     }
   }
 }
+
+@media screen and (max-width: 576px) {
+  .program__popap-image {
+    width: 100px;
+    height: 100px;
+  }
+
+  .program__popap-title {
+    font-size: 16px;
+    line-height: 21.5px;
+  }
+
+  .program__popap-text-l {
+    font-size: 14px;
+    line-height: 18.5px;
+  }
+}

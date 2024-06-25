@@ -4,7 +4,6 @@ import {
   ResponseForm,
   Error as IError,
   FormData,
-  Type,
   Request
 } from 'types';
 
@@ -24,7 +23,7 @@ const mockFetchData = (data: any) => {
   });
 };
 
-const TEMPLATE_ID = '7020150029849735914';
+const TEMPLATE_ID = '7040314279102083651';
 
 export const initialData = {
   data: {
@@ -99,7 +98,7 @@ export const postFormData = async (data: FormData[]): Promise<IError> => {
   const requestOptions = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(data)
+    body: JSON.stringify({ data: data })
   };
 
   try {

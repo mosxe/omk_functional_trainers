@@ -24,14 +24,19 @@
   &__container {
     position: relative;
     flex-basis: calc(50% - 18px);
-    height: 633px;
   }
 
   &__img {
+    position: relative;
     height: 484px;
     width: 100%;
+    margin-bottom: -200px;
+    z-index: 5;
 
     & img {
+      position: absolute;
+      top: 0;
+      left: 0;
       height: 100%;
       width: 100%;
       object-fit: cover;
@@ -40,12 +45,10 @@
   }
 
   &__content {
-    position: absolute;
-    top: 283px;
-    left: 0px;
-    right: 18px;
-    height: 350px;
-    padding: 40px;
+    position: relative;
+    width: calc(100% - 16px);
+    min-height: 340px;
+    padding: 40px 40px 60px 40px;
     font-size: 16px;
     font-weight: 400;
     line-height: 20px;
@@ -59,9 +62,11 @@
       9px 5px 15px 0px rgba(0, 50, 75, 0.03),
       13px 11px 29px 0px rgba(0, 50, 75, 0.04),
       3px 31px 80px 0px rgba(0, 50, 75, 0.06);
+    z-index: 10;
 
     & ul {
       padding-left: 24px;
+      margin: 10px 0px 0px 0px !important;
 
       & li {
         margin-bottom: 10px;
@@ -81,5 +86,77 @@
   &__text-black {
     font-weight: 700 !important;
     color: var(--page-color-black);
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .definitions {
+    margin: 50px 0px;
+  }
+
+  .definitions__wrapper {
+    margin-top: 30px;
+    gap: 26px;
+  }
+
+  .definitions__container {
+    flex-basis: calc(50% - 13px);
+  }
+
+  .definitions__content {
+    padding: 40px 25px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .definitions {
+    margin: 36px 0px;
+
+    &__title {
+      font-size: 28px;
+      line-height: 32px;
+    }
+
+    &__wrapper {
+      flex-direction: column;
+    }
+
+    &__content {
+      padding: 30px 20px;
+      width: 100%;
+      min-height: auto;
+    }
+
+    &__img {
+      max-height: 380px;
+      height: 100%;
+      margin-bottom: 0px;
+
+      & img {
+        position: relative;
+        top: auto;
+        left: auto;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .definitions__title {
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .definitions__wrapper {
+    margin-top: 24px;
+    gap: 24px;
+  }
+
+  .definitions__content {
+    padding: 24px 16px;
+  }
+
+  .definitions__img {
+    max-height: 360px;
   }
 }

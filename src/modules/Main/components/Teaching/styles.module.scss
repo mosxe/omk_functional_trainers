@@ -32,7 +32,7 @@
   &__container {
     display: flex;
     flex-wrap: wrap;
-    gap: 40px;
+    gap: 20px;
     margin-top: 70px;
   }
 
@@ -41,13 +41,10 @@
     gap: 30px;
     flex-basis: calc(50% - 20px);
 
-    &:nth-child(2n) {
-      padding-left: 10px;
-    }
-
     &_img {
       border-radius: 5px;
-      width: 169px;
+      max-width: 169px;
+      width: 100%;
       height: 112px;
       object-fit: cover;
     }
@@ -98,5 +95,136 @@
   &__image {
     width: 169px;
     height: 112px;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .teaching {
+    margin: 50px 0px;
+  }
+
+  .teaching__wrapper {
+    padding: 40px;
+  }
+
+  .teaching__text {
+    margin-top: 30px;
+  }
+
+  .teaching__container {
+    // gap: 30px;
+    margin-top: 30px;
+  }
+
+  // .criteria__card {
+  //   padding: 40px 30px;
+  //   flex-basis: calc(50% - 15px);
+  // }
+}
+
+@media screen and (max-width: 767px) {
+  .teaching {
+    margin: 36px 0px;
+
+    &__title {
+      font-size: 28px;
+      line-height: 32px;
+    }
+
+    &__card {
+      flex-direction: column;
+      gap: 20px;
+
+      &_img {
+        width: 200px;
+        height: 120px;
+        object-fit: fill;
+      }
+    }
+
+    &__content {
+      margin-top: 36px;
+      padding: 8px 16px;
+      border: none;
+    }
+
+    //   &__container {
+    //     margin-top: 30px;
+    //     flex-direction: column;
+    //   }
+
+    //   &__card {
+    //     padding: 32px 24px;
+    //   }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .teaching__title {
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .teaching__wrapper {
+    padding: 24px 16px;
+  }
+
+  .teaching__text {
+    margin-top: 16px;
+    font-size: 16px;
+    line-height: 20.8px;
+  }
+
+  .teaching__container {
+    margin-top: 16px;
+    gap: 36px;
+  }
+
+  .teaching__card {
+    flex-basis: 100%;
+    width: 100%;
+    gap: 16px;
+  }
+
+  .teaching__card_img {
+    max-width: 320px;
+    width: 100%;
+    height: 100%;
+    align-self: center;
+  }
+
+  .teaching__card_text {
+    font-size: 16px;
+    line-height: 21.6px;
+  }
+
+  .teaching__content {
+    padding: 0px 16px;
+  }
+
+  .teaching__subtitle {
+    font-size: 20px;
+    line-height: 26px;
+  }
+
+  .teaching__images {
+    flex-wrap: wrap;
+  }
+
+  .teaching__image {
+    width: 100%;
+    height: 80px;
+    flex-basis: calc(33% - 2px);
+
+    & img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 410px) {
+  .teaching__image {
+    flex-basis: calc(50% - 2px);
   }
 }

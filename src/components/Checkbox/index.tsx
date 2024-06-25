@@ -6,7 +6,7 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
   checked: boolean;
 }
 
-const Checkbox = forwardRef(({ label, checked, ...props }: Props, ref) => {
+const Checkbox = forwardRef(({ label, checked, ...props }: Props) => {
   const className = checked
     ? `${styles.checkbox} ${styles.checkbox_checked}`
     : styles.checkbox;

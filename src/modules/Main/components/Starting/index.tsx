@@ -91,7 +91,7 @@ const Starting = () => {
                   alt='Картинка'
                 />
                 <div className={styles.starting__card_title}>
-                  Жди письма<br></br> от куратора проекта
+                  Жди письма от куратора проекта
                 </div>
                 <div className={styles.starting__card_text}>
                   Анкету получит куратор проекта, запросит рекомендации от
@@ -124,7 +124,7 @@ const Starting = () => {
                   alt='Картинка'
                 />
                 <div className={styles.starting__card_title}>
-                  Обучайся и готовься<br></br> к аттестации
+                  Обучайся и готовься к аттестации
                 </div>
                 <div className={styles.starting__card_text}>
                   На программе развития внутренних преподавателей ты обучишься и

@@ -43,9 +43,21 @@ export const transformData = (data: any): FormData[] => {
         comments: obj
       });
     } else {
+      const tempEntries = obj.map((item) => {
+        const objectKeys = Object.keys(item);
+        if (objectKeys[0] === 'other') {
+          return item;
+        }
+        const objectValue = item[objectKeys[0]];
+        const objectId = objectKeys[0].slice(1);
+        return {
+          id: objectId,
+          value: objectValue
+        };
+      });
       results.push({
         id: value,
-        entries: obj,
+        entries: tempEntries,
         comments: ''
       });
     }
