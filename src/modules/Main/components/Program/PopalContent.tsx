@@ -70,7 +70,11 @@ const PopapContent = ({ id, onClose }: Props) => {
               диагностике. Если вопросов нет, просто нажмите кнопку “Записаться”
               и ваш запрос будет отправлен.
             </span>
-            <TextArea value={textValue} onChange={onChange} />
+            <TextArea
+              value={textValue}
+              onChange={onChange}
+              placeholder='Введите текст сообщения...'
+            />
           </div>
           <button
             className={styles['program__popap-btn']}
@@ -101,7 +105,11 @@ const PopapContent = ({ id, onClose }: Props) => {
               тренингу. Если вопросов нет, просто нажмите кнопку “Записаться” и
               ваш запрос будет отправлен.
             </span>
-            <TextArea value={textValue} onChange={onChange} />
+            <TextArea
+              value={textValue}
+              onChange={onChange}
+              placeholder='Введите текст сообщения...'
+            />
           </div>
           <button
             className={styles['program__popap-btn']}
@@ -132,7 +140,11 @@ const PopapContent = ({ id, onClose }: Props) => {
               сертификации. Если вопросов нет, просто нажмите кнопку
               “Записаться” и ваш запрос будет отправлен.
             </span>
-            <TextArea value={textValue} onChange={onChange} />
+            <TextArea
+              value={textValue}
+              onChange={onChange}
+              placeholder='Введите текст сообщения...'
+            />
           </div>
           <button
             className={styles['program__popap-btn']}

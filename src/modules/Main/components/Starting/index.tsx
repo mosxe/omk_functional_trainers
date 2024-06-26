@@ -58,7 +58,7 @@ const Starting = () => {
         <div className={styles.starting__wrapper}>
           <h2 className={styles.starting__title}>
             <span className={styles.starting__title_red}>Как начать</span>{' '}
-            преподавать и стать<br></br> функциональным тренером?
+            преподавать и стать функциональным тренером?
           </h2>
           <div className={styles.starting__container}>
             <div className={styles.starting__card}>

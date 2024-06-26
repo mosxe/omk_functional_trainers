@@ -47,7 +47,6 @@
     background-color: var(--page-color-white);
     z-index: 1000;
     padding-bottom: 20px;
-    // overflow-y: hidden;
   }
 
   &__body {
@@ -133,15 +132,20 @@
   }
 }
 
+@media screen and (max-width: 767px) {
+  body:has(.modal.show) {
+    overflow: hidden;
+  }
+}
+
 @media screen and (max-width: 576px) {
   .modal__wrapper {
     padding: 16px;
   }
 
   .modal__header {
-    // overflow-y: initial;
     padding-bottom: 0px;
-    margin-bottom: 10px;
+    margin-bottom: 16px;
 
     & h3 {
       padding-top: 25px;

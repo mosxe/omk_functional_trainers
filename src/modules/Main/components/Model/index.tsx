@@ -1,4 +1,4 @@
-﻿import ImageScheme from 'assets/images/Model/scheme.png';
+﻿import Scheme from './Scheme';
 import ImageFooter1 from 'assets/images/Teaching/img_2.png';
 import ImageFooter2 from 'assets/images/Teaching/img_1.png';
 import ImageFooter3 from 'assets/images/Teaching/card_3.png';
@@ -6,9 +6,10 @@ import styles from './styles.module.scss';
 
 type Props = {
   link: string;
+  video: string;
 };
 
-const Model = ({ link }: Props) => {
+const Model = ({ link, video }: Props) => {
   const handleClick = () => {
     window.open(link, '_blank');
   };
@@ -21,8 +22,8 @@ const Model = ({ link }: Props) => {
             <h2 className={styles.model__title}>
               <span className={styles.model__title_red}>
                 Модель компетенций
-              </span>
-              <br></br> функционального тренера
+              </span>{' '}
+              функционального тренера
             </h2>
           </div>
           <div
@@ -54,7 +55,7 @@ const Model = ({ link }: Props) => {
           <div className={styles.model__content}>
             <div className={styles.model__video}>
               <video controls>
-                <source src={link} />
+                <source src={video} />
               </video>
             </div>
           </div>
@@ -87,11 +88,7 @@ const Model = ({ link }: Props) => {
                 </button>
               )}
             </div>
-            <div className={styles.model__scheme}>
-              <div className={styles.model__img}>
-                <img src={ImageScheme} alt='Схема' />
-              </div>
-            </div>
+            <Scheme />
           </div>
           <div className={styles.model__footer}>
             <div className={styles.model__footer_text}>

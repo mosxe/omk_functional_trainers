@@ -37,7 +37,8 @@ export const initialData = {
     },
     link_model_competence: '',
     link_development_plan: '',
-    link_events: ''
+    link_events: '',
+    model_competence_video: ''
   },
   isError: false,
   errorMessage: ''

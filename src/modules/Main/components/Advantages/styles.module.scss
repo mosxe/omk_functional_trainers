@@ -90,6 +90,11 @@
   .advantages {
     margin: 36px 0px;
 
+    &__title {
+      font-size: 28px;
+      line-height: 32px;
+    }
+
     &__card {
       padding: 24px 20px;
       width: 100%;

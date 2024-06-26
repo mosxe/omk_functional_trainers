@@ -36,16 +36,28 @@ const Schedule = ({ data, link }: Props) => {
               тренеров
             </span>
           </div>
-          <div className={styles.schedule__content}>
-            <img src={Image1} alt='Картинка' width={217} height={134} />
+          <div
+            className={`${styles.schedule__content} ${styles.schedule__content_img}`}
+          >
+            <div className={styles.schedule__image_1}>
+              <img src={Image1} alt='Картинка' />
+            </div>
             <div className={styles['schedule__box-images']}>
               <div className={styles['schedule__row-images']}>
-                <img src={Image2} alt='Картинка' width={92} height={66} />
-                <img src={Image3} alt='Картинка' width={194} height={66} />
+                <div className={styles.schedule__image_2}>
+                  <img src={Image2} alt='Картинка' />
+                </div>
+                <div className={styles.schedule__image_3}>
+                  <img src={Image3} alt='Картинка' />
+                </div>
               </div>
               <div className={styles['schedule__row-images']}>
-                <img src={Image4} alt='Картинка' width={194} height={66} />
-                <img src={Image5} alt='Картинка' width={92} height={66} />
+                <div className={styles.schedule__image_4}>
+                  <img src={Image4} alt='Картинка' />
+                </div>
+                <div className={styles.schedule__image_5}>
+                  <img src={Image5} alt='Картинка' />
+                </div>
               </div>
             </div>
           </div>

@@ -6,7 +6,6 @@ type Props = {
 };
 
 const Contacts = ({ data }: Props) => {
-  console.error;
   return (
     <section className={styles.contacts}>
       <div className={styles.contacts__wrapper}>

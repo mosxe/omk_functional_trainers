@@ -43,7 +43,7 @@ export const transformData = (data: any): FormData[] => {
         comments: obj
       });
     } else {
-      const tempEntries = obj.map((item) => {
+      const tempEntries = obj.map((item: any) => {
         const objectKeys = Object.keys(item);
         if (objectKeys[0] === 'other') {
           return item;

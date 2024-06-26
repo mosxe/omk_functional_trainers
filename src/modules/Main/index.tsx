@@ -89,7 +89,10 @@ const Main = () => {
         <Teaching />
         <KPI />
         <Support ref={supportRef} />
-        <Model link={data.data.link_model_competence} />
+        <Model
+          link={data.data.link_model_competence}
+          video={data.data.model_competence_video}
+        />
         <Program link={data.data.link_development_plan} />
         <Schedule data={data.data.events} link={data.data.link_events} />
         <Materials data={data.data.materials} />

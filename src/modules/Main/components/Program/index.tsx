@@ -57,8 +57,8 @@ const Program = ({ link }: Props) => {
               <h2 className={styles.program__title}>
                 <span className={styles.program__title_red}>
                   Программа развития
-                </span>
-                <br></br> преподавателей тренеров
+                </span>{' '}
+                преподавателей тренеров
               </h2>
             </div>
             <div

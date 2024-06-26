@@ -11,9 +11,8 @@ const Support = forwardRef<HTMLDivElement>((_, ref) => {
       <div className={styles.support__wrapper}>
         <h2 className={styles.support__title}>
           <span className={styles.support__title_red}>Какую поддержку</span>{' '}
-          преподавателям<br></br> оказывает корпоративный университет?
+          преподавателям оказывает корпоративный университет?
         </h2>
-        {/* <div className={styles.support__container}> */}
         <div className={styles.support__row}>
           <div className={styles.support__card}>
             <img src={Image1} alt='Картинка' />

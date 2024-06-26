@@ -52,6 +52,7 @@ export interface ResponseData extends Error {
     link_model_competence: string;
     link_development_plan: string;
     link_events: string;
+    model_competence_video: string;
   };
 }
 

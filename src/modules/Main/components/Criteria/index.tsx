@@ -7,7 +7,7 @@ const Criteria = forwardRef<HTMLDivElement>((_, ref) => {
       <div className={styles.criteria__wrapper}>
         <h2 className={styles.criteria__title}>
           <span className={styles.criteria__title_red}>Кто может</span>{' '}
-          преподавать или стать<br></br> функциональным тренером?
+          преподавать или стать функциональным тренером?
         </h2>
         <div className={styles.criteria__subtitle}>Входные критерии просты</div>
         <div className={styles.criteria__container}>
