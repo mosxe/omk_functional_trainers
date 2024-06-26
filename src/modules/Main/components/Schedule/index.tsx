@@ -130,26 +130,12 @@ const Schedule = ({ data, link }: Props) => {
                           )}
                         </div>
                       </td>
-                      <td>
-                        <div>
-                          <span className={styles['schedule__table_text-m']}>
-                            {event.start_date_name}
-                          </span>
-                          <span className={styles['schedule__table_text-s']}>
-                            {event.start_date_desc}
-                          </span>
-                        </div>
-                      </td>
-                      <td>
-                        <div>
-                          <span className={styles['schedule__table_text-m']}>
-                            {event.time_name}
-                          </span>
-                          <span className={styles['schedule__table_text-s']}>
-                            {event.time_desc}
-                          </span>
-                        </div>
-                      </td>
+                      <td
+                        dangerouslySetInnerHTML={{ __html: event.start_date }}
+                      ></td>
+                      <td
+                        dangerouslySetInnerHTML={{ __html: event.start_time }}
+                      ></td>
                       <td>
                         <div
                           className={`${styles.schedule__table_col} ${styles['schedule__table_col-s']}`}

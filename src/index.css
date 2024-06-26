@@ -83,3 +83,27 @@ body {
 #wt-container > .page-content {
   padding-bottom: 0px !important;
 }
+
+#functional-trainers table .text-m {
+  display: block;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 21.6px;
+  text-align: left;
+  color: var(--page-color-white);
+}
+
+#functional-trainers table .text-s {
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 15.6px;
+  text-align: left;
+  color: var(--page-color-gray);
+  margin-top: 5px;
+}
+
+#functional-trainers table tr td:nth-child(2) div + div,
+#functional-trainers table tr td:nth-child(3) div + div {
+  margin-top: 12px;
+}

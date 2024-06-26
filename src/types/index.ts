@@ -14,10 +14,8 @@ export interface Material {
 export interface Event {
   link: string;
   title: string;
-  start_date_name: string;
-  start_date_desc: string;
-  time_name: string;
-  time_desc: string;
+  start_date: string;
+  start_time: string;
   photo: string;
   fullname: string;
   position_name: string;
