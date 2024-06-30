@@ -190,7 +190,7 @@ const PopapContent = ({ id, notificationId, onClose }: Props) => {
           <button
             className={styles['program__popap-btn']}
             type='button'
-            onClick={() => handleClick('certification')}
+            onClick={() => handleClick('development_plan')}
           >
             Записаться
           </button>
