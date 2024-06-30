@@ -54,30 +54,17 @@ const Question = ({ data, index }: Props) => {
                       id={`${data.id}.${indexEntry}._${entry.id}`}
                       checked={value}
                       label={entry.title}
-                      onChange={onChange}
+                      onChange={(e) => {
+                        if (entry.weight === 1) {
+                          setShowTextArea(!isShowTextArea);
+                        }
+                        onChange(e);
+                      }}
                     />
                   )}
                 />
               );
             })}
-          {data.type === 'select' && data.is_comment && (
-            <Controller
-              control={control}
-              name={`${data.id}.${data.entries.length}.other`}
-              defaultValue={false}
-              render={({ field: { onChange, value } }) => (
-                <Checkbox
-                  id={`${data.id}_other`}
-                  checked={value}
-                  label='другое'
-                  onChange={(e) => {
-                    setShowTextArea(!isShowTextArea);
-                    onChange(e);
-                  }}
-                />
-              )}
-            />
-          )}
           {isShowTextArea && (
             <Controller
               control={control}

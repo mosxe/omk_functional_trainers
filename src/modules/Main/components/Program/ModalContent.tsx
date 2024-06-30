@@ -2,18 +2,27 @@
 import Image1 from 'assets/svg/Program/card_1.svg';
 import Image3 from 'assets/svg/Program/card_3.svg';
 import Image4 from 'assets/svg/Program/card_4.svg';
+import { Program, ActionProgram } from 'types';
+import { onActionProgram } from 'helpers';
 import styles from './styles.module.scss';
 
 type Props = {
   id: number | null;
   onClick: () => void;
   onShowPopap: () => void;
+  program: Program | undefined;
+  actionButton: ActionProgram | undefined;
 };
 
-const ModalContent = ({ id, onClick, onShowPopap }: Props) => {
+const ModalContent = ({
+  id,
+  onClick,
+  onShowPopap,
+  program,
+  actionButton
+}: Props) => {
   const handleClick = () => {
-    onClick();
-    onShowPopap();
+    onActionProgram(program, actionButton, onShowPopap, onClick);
   };
 
   switch (id) {
@@ -76,27 +85,29 @@ const ModalContent = ({ id, onClick, onShowPopap }: Props) => {
                 знаний и завершение обучающего блока.
               </p>
             </div>
-            <button
-              className={`${styles.program__card_btn} ${styles['program__card_btn-center']}`}
-              type='button'
-              onClick={handleClick}
-            >
-              Записаться на диагностику
-              <svg
-                width='52'
-                height='12'
-                viewBox='0 0 52 12'
-                fill='none'
-                xmlns='http://www.w3.org/2000/svg'
+            {actionButton !== undefined && program !== undefined && (
+              <button
+                className={`${styles.program__card_btn} ${styles['program__card_btn-center']}`}
+                type='button'
+                onClick={handleClick}
               >
-                <path
-                  d='M1 11H51L35.322 1'
-                  stroke='#E1251B'
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                />
-              </svg>
-            </button>
+                {program.button_name}
+                <svg
+                  width='52'
+                  height='12'
+                  viewBox='0 0 52 12'
+                  fill='none'
+                  xmlns='http://www.w3.org/2000/svg'
+                >
+                  <path
+                    d='M1 11H51L35.322 1'
+                    stroke='#E1251B'
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
+                  />
+                </svg>
+              </button>
+            )}
           </Modal.Body>
         </>
       );
@@ -166,27 +177,29 @@ const ModalContent = ({ id, onClick, onShowPopap }: Props) => {
                 </li>
               </ul>
             </div>
-            <button
-              className={`${styles.program__card_btn} ${styles['program__card_btn-center']}`}
-              type='button'
-              onClick={handleClick}
-            >
-              Записаться на тренинг
-              <svg
-                width='52'
-                height='12'
-                viewBox='0 0 52 12'
-                fill='none'
-                xmlns='http://www.w3.org/2000/svg'
+            {actionButton !== undefined && program !== undefined && (
+              <button
+                className={`${styles.program__card_btn} ${styles['program__card_btn-center']}`}
+                type='button'
+                onClick={handleClick}
               >
-                <path
-                  d='M1 11H51L35.322 1'
-                  stroke='#E1251B'
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                />
-              </svg>
-            </button>
+                {program.button_name}
+                <svg
+                  width='52'
+                  height='12'
+                  viewBox='0 0 52 12'
+                  fill='none'
+                  xmlns='http://www.w3.org/2000/svg'
+                >
+                  <path
+                    d='M1 11H51L35.322 1'
+                    stroke='#E1251B'
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
+                  />
+                </svg>
+              </button>
+            )}
           </Modal.Body>
         </>
       );
@@ -247,27 +260,29 @@ const ModalContent = ({ id, onClick, onShowPopap }: Props) => {
                 </li>
               </ul>
             </div>
-            <button
-              className={`${styles.program__card_btn} ${styles['program__card_btn-center']}`}
-              type='button'
-              onClick={handleClick}
-            >
-              Записаться на сертификацию
-              <svg
-                width='52'
-                height='12'
-                viewBox='0 0 52 12'
-                fill='none'
-                xmlns='http://www.w3.org/2000/svg'
+            {actionButton !== undefined && program !== undefined && (
+              <button
+                className={`${styles.program__card_btn} ${styles['program__card_btn-center']}`}
+                type='button'
+                onClick={handleClick}
               >
-                <path
-                  d='M1 11H51L35.322 1'
-                  stroke='#E1251B'
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                />
-              </svg>
-            </button>
+                {program.button_name}
+                <svg
+                  width='52'
+                  height='12'
+                  viewBox='0 0 52 12'
+                  fill='none'
+                  xmlns='http://www.w3.org/2000/svg'
+                >
+                  <path
+                    d='M1 11H51L35.322 1'
+                    stroke='#E1251B'
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
+                  />
+                </svg>
+              </button>
+            )}
           </Modal.Body>
         </>
       );

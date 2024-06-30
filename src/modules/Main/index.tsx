@@ -29,10 +29,22 @@ const Main = () => {
   const supportRef = useRef<HTMLDivElement>(null);
 
   const hancleClickSection = useCallback((isTeaching: boolean) => {
-    if (isTeaching) {
-      criteriaRef.current?.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      supportRef.current?.scrollIntoView({ behavior: 'smooth' });
+    const headerHeight = 64;
+    if (isTeaching && criteriaRef.current) {
+      const scrollPosY =
+        criteriaRef.current.getBoundingClientRect().top - headerHeight;
+      window.scrollTo({
+        top: scrollPosY,
+        behavior: 'smooth'
+      });
+      // criteriaRef.current?.scrollIntoView({ behavior: 'smooth' });
+    } else if (supportRef.current) {
+      const scrollPosY =
+        supportRef.current.getBoundingClientRect().top - headerHeight;
+      window.scrollTo({
+        top: scrollPosY,
+        behavior: 'smooth'
+      });
     }
   }, []);
 
@@ -93,7 +105,7 @@ const Main = () => {
           link={data.data.link_model_competence}
           video={data.data.model_competence_video}
         />
-        <Program link={data.data.link_development_plan} />
+        <Program data={data.data.programs} />
         <Schedule data={data.data.events} link={data.data.link_events} />
         <Materials data={data.data.materials} />
         <Contacts data={data.data.contacts} />

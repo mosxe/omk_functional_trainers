@@ -2,6 +2,7 @@
 import ImageFooter1 from 'assets/images/Teaching/img_2.png';
 import ImageFooter2 from 'assets/images/Teaching/img_1.png';
 import ImageFooter3 from 'assets/images/Teaching/card_3.png';
+import { getLink, getLinkFile } from 'helpers';
 import styles from './styles.module.scss';
 
 type Props = {
@@ -11,8 +12,16 @@ type Props = {
 
 const Model = ({ link, video }: Props) => {
   const handleClick = () => {
-    window.open(link, '_blank');
+    const linkFile = getLinkFile(link);
+    const a = document.createElement('a');
+    a.href = linkFile;
+    a.download = 'Модель компетенций';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
   };
+
+  const linkVideo = getLink(video);
 
   return (
     <section className={styles.model}>
@@ -55,7 +64,7 @@ const Model = ({ link, video }: Props) => {
           <div className={styles.model__content}>
             <div className={styles.model__video}>
               <video controls>
-                <source src={video} />
+                <source src={linkVideo} />
               </video>
             </div>
           </div>

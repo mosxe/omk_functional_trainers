@@ -1,4 +1,5 @@
 ﻿import { Contact } from 'types';
+import { getLink } from 'helpers';
 import styles from './styles.module.scss';
 
 type Props = {
@@ -6,6 +7,7 @@ type Props = {
 };
 
 const Contacts = ({ data }: Props) => {
+  const linkPhoto = data.photo ? getLink(data.photo) : '';
   return (
     <section className={styles.contacts}>
       <div className={styles.contacts__wrapper}>
@@ -13,8 +15,8 @@ const Contacts = ({ data }: Props) => {
           <span className={styles.contacts__title_red}>Контакты</span>
         </h2>
         <div className={styles.contacts__container}>
-          {data.photo && (
-            <img className={styles.contacts__img} src={data.photo} alt='Фото' />
+          {linkPhoto && (
+            <img className={styles.contacts__img} src={linkPhoto} alt='Фото' />
           )}
           <div className={styles.contacts__col}>
             <span className={styles.contacts__text}>{data.fullname}</span>

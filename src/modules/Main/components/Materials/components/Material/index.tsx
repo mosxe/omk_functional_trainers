@@ -1,4 +1,5 @@
 ﻿import { Material as IMaterial } from 'types';
+import { getLink, getLinkFile } from 'helpers';
 import styles from '../../styles.module.scss';
 
 type Props = {
@@ -8,7 +9,18 @@ type Props = {
 
 const Material = ({ data, style }: Props) => {
   const handleClick = () => {
-    window.open(data.link, '_blank');
+    if (data.is_download) {
+      const linkFile = getLinkFile(data.link);
+      const a = document.createElement('a');
+      a.href = linkFile;
+      a.download = 'Материал';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    } else {
+      const linkPage = getLink(data.link);
+      window.open(linkPage, '_blank');
+    }
   };
 
   return (

@@ -27,6 +27,7 @@ const TEMPLATE_ID = '7040314279102083651';
 
 export const initialData = {
   data: {
+    programs: [],
     materials: [],
     events: [],
     contacts: {
@@ -36,7 +37,6 @@ export const initialData = {
       email: ''
     },
     link_model_competence: '',
-    link_development_plan: '',
     link_events: '',
     model_competence_video: ''
   },

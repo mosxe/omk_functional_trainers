@@ -5,6 +5,7 @@ import Image4 from 'assets/images/Schedule/image_4.png';
 import Image5 from 'assets/images/Schedule/image_5.png';
 import ImagePhoto from 'assets/svg/Schedule/photo.svg';
 import { Event } from 'types';
+import { getLink, getLinkFile } from 'helpers';
 import styles from './styles.module.scss';
 
 type Props = {
@@ -14,11 +15,18 @@ type Props = {
 
 const Schedule = ({ data, link }: Props) => {
   const handleClick = (eventLink: string) => {
-    window.open(eventLink, '_blank');
+    const linkPage = getLink(eventLink);
+    window.open(linkPage, '_blank');
   };
 
   const onDownloadFile = () => {
-    window.open(link, '_blank');
+    const linkFile = getLinkFile(link);
+    const a = document.createElement('a');
+    a.href = linkFile;
+    a.download = 'Расписание мероприятий';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
   };
 
   return (

@@ -22,6 +22,23 @@ export interface Event {
   desc: string;
 }
 
+export interface Program {
+  title_program: string;
+  is_diagnostics: string;
+  is_training: string;
+  is_development_plan: string;
+  is_certification: string;
+  title_desc: string;
+  is_button_link: string;
+  is_button_file: string;
+  is_button_message: string;
+  title_settings: string;
+  link_page: string;
+  object_file_id: string;
+  notification_type_id: string;
+  button_name: string;
+}
+
 export interface Contact {
   photo: string;
   fullname: string;
@@ -32,6 +49,7 @@ export interface Contact {
 export interface Entry {
   id: string;
   title: string;
+  weight: number;
 }
 
 export interface Poll {
@@ -44,11 +62,11 @@ export interface Poll {
 
 export interface ResponseData extends Error {
   data: {
+    programs: Program[];
     materials: Material[];
     events: Event[];
     contacts: Contact;
     link_model_competence: string;
-    link_development_plan: string;
     link_events: string;
     model_competence_video: string;
   };
@@ -64,9 +82,16 @@ export interface FormData {
   comments: string;
 }
 
-export type Type = 'diagnostics' | 'training' | 'certification';
+export type Type =
+  | 'diagnostics'
+  | 'training'
+  | 'certification'
+  | 'development_plan';
 
 export interface Request {
   type: Type;
   text: string;
+  notification_id: string;
 }
+
+export type ActionProgram = 'file' | 'link' | 'message';

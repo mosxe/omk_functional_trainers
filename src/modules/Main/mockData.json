@@ -1,17 +1,83 @@
 ﻿{
   "fetchData": {
     "data": {
+      "programs": [
+        {
+          "title_program": "",
+          "is_diagnostics": "",
+          "is_training": "true",
+          "is_development_plan": "",
+          "is_certification": "",
+          "title_desc": "",
+          "is_button_link": "true",
+          "is_button_file": "",
+          "is_button_message": "",
+          "title_settings": "",
+          "link_page": "/main",
+          "object_file_id": "",
+          "notification_type_id": "",
+          "button_name": "Записаться на тренинг"
+        },
+        {
+          "title_program": "",
+          "is_diagnostics": "",
+          "is_training": "",
+          "is_development_plan": "",
+          "is_certification": "true",
+          "title_desc": "",
+          "is_button_link": "",
+          "is_button_file": "",
+          "is_button_message": "true",
+          "title_settings": "",
+          "link_page": "",
+          "object_file_id": "",
+          "notification_type_id": "7042092618212921995",
+          "button_name": "Записаться на сертификацию"
+        },
+        {
+          "title_program": "",
+          "is_diagnostics": "",
+          "is_training": "",
+          "is_development_plan": "true",
+          "is_certification": "",
+          "title_desc": "",
+          "is_button_link": "",
+          "is_button_file": "true",
+          "is_button_message": "",
+          "title_settings": "",
+          "link_page": "",
+          "object_file_id": "7042721192704733468",
+          "notification_type_id": "",
+          "button_name": "Скачать план развития"
+        },
+        {
+          "title_program": "",
+          "is_diagnostics": "true",
+          "is_training": "false",
+          "is_development_plan": "",
+          "is_certification": "",
+          "title_desc": "",
+          "is_button_link": "false",
+          "is_button_file": "false",
+          "is_button_message": "true",
+          "title_settings": "",
+          "link_page": "",
+          "object_file_id": "",
+          "notification_type_id": "7042432846304095272",
+          "button_name": "Записаться на диагностику"
+        }
+      ],
       "materials": [
         {
           "type": "материал для скачивания",
           "title": "Эмоциональная смелость",
           "desc": "Питер Брегман. Манн, Иванов, 2018",
           "is_download": "true",
-          "link": "http://localhost/download_file.html?file_id=7179197303563902064"
+          "link": "http://localhost/download_file.html?file_id=6972734825693151124"
         },
         {
           "type": "издательство АЛЬПИНА",
-          "title": "Эмоциональная смелость Эмоциональная смелость Эмоциональная смелость",
+          "title": "Эмоциональная смелость",
           "desc": "Питер Брегман. Манн, Иванов, 2018 Питер Брегман. Манн, Иванов, 2018",
           "is_download": "",
           "link": "https://ya.ru"
@@ -26,36 +92,32 @@
       ],
       "events": [
         {
-          "link": "asdassasd",
-          "title": "Тренинг для тренеров",
-          "start_date": "<div><span class='text-m'>Группа 1</span><span class='text-s'>20, 27 февраля, 4 марта</span></div><div><span class='text-m'>Группа 1</span><span class='text-s'>20, 27 февраля, 4 марта</span></div>",
-          "start_time": "<div><span class='text-m'>09:00 - 17:00</span><span class='text-s'>3 дня по 24 часа</span></div><div><span class='text-m'>09:00 - 17:00</span><span class='text-s'>3 дня по 24 часа</span></div>",
-          "photo": "",
+          "id": "1111",
+          "name": "Тренинг для тренеров",
+          "start_date": "<div><span class=\"text-m\">Группа 1</span><span class=\"text-s\">20, 27 февраля</span></div>\r\n<div><span class=\"text-m\">Группа 1</span><span class=\"text-s\">20, 27 февраля</span></div>",
+          "time": "09:00-17:00",
+          "photo": "http://localhost/download_file.html?file_id=7165802453038623607",
           "fullname": "Ирина Гольцова",
           "position_name": "Ведущий тренер",
-          "desc": "<ul>\r\n<li>asdasdadasd</li>\r\n<li>asdasdadasd22 222</li>\r\n<li>asdasdadasd 333333</li>\r\n</ul>"
-        },
-        {
-          "link": "",
-          "title": "Тренинг для тренеров",
-          "start_date": "<div><span class='text-m'>Группа 1</span><span class='text-s'>20, 27 февраля, 4 марта, 10 марта, 30 февраля</span></div>",
-          "start_time": "<div><span class='text-m'>09:00 - 17:00</span><span class='text-s'>3 дня по 24 часа</span></div>",
-          "photo": "",
-          "fullname": "Ирина Гольцова",
-          "position_name": "Ведущий тренер",
-          "desc": "<ul>\r\n<li>asdasdadasd</li>\r\n<li>asdasdadasd22 222</li>\r\n<li>asdasdadasd 333333</li>\r\n</ul>"
+          "desc": "<ul>\r\n<li>asdasdadasd</li>\r\n<li>asdasdadasd22 222</li>\r\n<li>asdasdadasd 333333</li>\r\n</ul>",
+          "link": "ссылка",
+          "title": "Тестовое мероприятие",
+          "start_date_name": "Группа 1",
+          "start_date_desc": "21 сентярбрпя",
+          "time_name": "09-10",
+          "time_desc": "8 часов",
+          "start_time": "<div><span class=\"text-m\">09:00 - 17:00</span><span class=\"text-s\">3 дня по 8 часов</span></div>"
         }
       ],
       "contacts": {
-        "photo": "https://coolsen.ru/wp-content/uploads/2021/06/42-7.jpg",
-        "fullname": "Юлия Орешкина",
-        "position_name": "Куратор проекта по развитию внутренних преподавателей",
-        "email": "ORESHKINA_IUN@omk.ru"
+        "photo": "http://localhost/download_file.html?file_id=7165802453038623607",
+        "fullname": "Петров Иван",
+        "position_name": "Старший аналитик",
+        "email": "@testgggggg.ru"
       },
-      "link_model_competence": "asdasasdads",
-      "link_development_plan": "asdasd",
-      "link_events": "ddddddd",
-      "model_competence_video": ""
+      "link_model_competence": "http://localhost/download_file.html?file_id=7042721113247233466",
+      "link_events": "http://localhost/download_file.html?file_id=6972734825693151124",
+      "model_competence_video": "http://localhost/download_file.html?file_id=7058234202490827438"
     },
     "isError": false,
     "errorMessage": ""
@@ -70,11 +132,18 @@
         "entries": [
           {
             "id": "56934236",
-            "title": "участвовать в разработке программ (делиться знаниями и опытом, давать экспертную оценку программ);"
+            "title": "участвовать в разработке программ (делиться знаниями и опытом, давать экспертную оценку программ)",
+            "weight": 0
           },
           {
             "id": "77034285",
-            "title": "преподавать;"
+            "title": "преподавать",
+            "weight": 0
+          },
+          {
+            "id": "54611269",
+            "title": "другое",
+            "weight": 1
           }
         ]
       },
@@ -93,21 +162,37 @@
         "entries": [
           {
             "id": "32794997",
-            "title": "Обучение по своей или смежной профессии"
+            "title": "Обучение по своей или смежной профессии",
+            "weight": 0
           },
           {
             "id": "92557195",
-            "title": "Обучение по своему функциональному направлению (технологии, ремонты, строительство и проч.)"
+            "title": "Обучение по своему функциональному направлению (технологии, ремонты, строительство и проч.)",
+            "weight": 0
           },
           {
             "id": "67796549",
-            "title": "Обучение по безопасности на производстве"
+            "title": "Обучение по безопасности на производстве",
+            "weight": 0
           },
           {
             "id": "94693737",
-            "title": "Обучение по контролю за качеством продукции"
+            "title": "Обучение по контролю за качеством продукции",
+            "weight": 0
+          },
+          {
+            "id": "12778016",
+            "title": "другое",
+            "weight": 1
           }
         ]
+      },
+      {
+        "id": "76720667",
+        "title": "Сколько времени Вы готовы уделять для обучения других? Обозначьте Ваши пожелания свободным текстом.",
+        "type": "text",
+        "is_comment": false,
+        "entries": []
       }
     ],
     "isError": false,

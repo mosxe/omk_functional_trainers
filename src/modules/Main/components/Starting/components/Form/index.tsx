@@ -6,7 +6,7 @@ import { LoaderContent } from 'components/Loader';
 import Error from 'components/Error';
 import { ResponseForm } from 'types';
 import { postFormData } from '../../../../utils';
-import { getValidForm, transformData } from './helpers';
+import { getValidForm, transformData } from 'helpers';
 import styles from './styles.module.scss';
 
 type Props = {
@@ -22,7 +22,7 @@ const Form = ({ data, isLoading, isError, onClose }: Props) => {
 
   useEffect(() => {
     const subscription = methods.watch((values) => {
-      const isValid = getValidForm(values);
+      const isValid = getValidForm(values, data.data);
 
       if (isValid && isDisabledForm) {
         setDisabledForm(false);
@@ -33,11 +33,13 @@ const Form = ({ data, isLoading, isError, onClose }: Props) => {
       }
     });
     return () => subscription.unsubscribe();
-  }, [methods.watch]);
+  }, [methods.watch, data.data]);
 
-  const onSubmit: SubmitHandler<Record<string, string | boolean>> = (data) => {
+  const onSubmit: SubmitHandler<Record<string, string | boolean>> = (
+    dataForm
+  ) => {
     setLoadingPost(true);
-    const formData = transformData(data);
+    const formData = transformData(dataForm, data.data);
     postFormData(formData)
       .then((res) => {
         onClose(res.isError);
