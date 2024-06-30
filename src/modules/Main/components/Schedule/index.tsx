@@ -153,12 +153,8 @@ const Schedule = ({ data, link }: Props) => {
                             src={srcPhoto}
                             alt='Фото'
                           />
-                          <span className={styles['schedule__table_text-m']}>
-                            {event.fullname}
-                          </span>
-                          <span className={styles['schedule__table_text-s']}>
-                            {event.position_name}
-                          </span>
+                          <span className='text-m'>{event.fullname}</span>
+                          <span className='text-s'>{event.position_name}</span>
                         </div>
                       </td>
                       <td>
