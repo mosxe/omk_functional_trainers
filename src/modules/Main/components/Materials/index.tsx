@@ -18,9 +18,7 @@ const Materials = ({ data }: Props) => {
       <div className={styles.materials__box}>
         <div className={styles.materials__wrapper}>
           <img className={styles.materials__img} src={Image} alt='Картинка' />
-          <div className={styles.materials__text}>
-            подборка материалов для скачивания
-          </div>
+          <div className={styles.materials__text}>подборка материалов</div>
         </div>
         <div className={styles.materials__container}>
           {data.map((material, index) => {

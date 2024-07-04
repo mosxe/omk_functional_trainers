@@ -9,7 +9,7 @@ type Props = {
 
 const Material = ({ data, style }: Props) => {
   const handleClick = () => {
-    if (data.is_download) {
+    if (data.is_download === 'true') {
       const linkFile = getLinkFile(data.link);
       const a = document.createElement('a');
       a.href = linkFile;
@@ -52,11 +52,8 @@ const Material = ({ data, style }: Props) => {
             </>
           ) : (
             <>
-              <div
-                className={styles.materials__card_help}
-                style={{ width: '176px' }}
-              >
-                перейти в библиотеку издательства Альпина
+              <div className={styles.materials__card_help}>
+                перейти по ссылке
               </div>
               <svg
                 width='16'

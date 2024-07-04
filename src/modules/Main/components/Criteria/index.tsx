@@ -1,13 +1,12 @@
-﻿import { forwardRef } from 'react';
-import styles from './styles.module.scss';
+﻿import styles from './styles.module.scss';
 
-const Criteria = forwardRef<HTMLDivElement>((_, ref) => {
+const Criteria = () => {
   return (
-    <section className={styles.criteria} ref={ref}>
+    <section className={styles.criteria}>
       <div className={styles.criteria__wrapper}>
         <h2 className={styles.criteria__title}>
           <span className={styles.criteria__title_red}>Кто может</span>{' '}
-          преподавать или стать функциональным тренером?
+          преподавать и стать функциональным тренером?
         </h2>
         <div className={styles.criteria__subtitle}>Входные критерии просты</div>
         <div className={styles.criteria__container}>
@@ -39,16 +38,19 @@ const Criteria = forwardRef<HTMLDivElement>((_, ref) => {
           </div>
           <div className={styles.criteria__card}>
             <div className={styles.criteria__card_title}>
-              Готов выделять время на преподавательскую деятельность
+              Готов выделять время на обучение других
             </div>
             <div className={styles.criteria__text}>
-              Готов выделять время на преподавательскую деятельность, а
-              руководитель готов к тому, что часть времени сотрудник будет
-              исполнять преподавательскую функцию. Программы обучения имеют
-              разную длительность: в среднем от недели до месяца с вовлечением
-              преподавателя от 50% времени ежедневно.<br></br>
-              <br></br> Частота привлечения преподавателя обязательно
-              обсуждается и согласуется с руководителем.
+              <span className={styles.criteria__text_black}>
+                Готов выделять время на обучение других,
+              </span>{' '}
+              а руководитель готов к тому, что часть времени сотрудник будет
+              посвящать время обучению и развитию себя как
+              тренера/преподавателя. Программы обучения имеют разную
+              длительность: в среднем от недели до месяца с вовлечением
+              преподавателя/тренера до 50% времени ежедневно. Частота
+              привлечения преподавателя/тренера обязательно обсуждается и
+              согласуется с руководителем.
             </div>
           </div>
           <div className={styles.criteria__card}>
@@ -58,14 +60,14 @@ const Criteria = forwardRef<HTMLDivElement>((_, ref) => {
             <div className={styles.criteria__text}>
               Готов делиться опытом и легко{' '}
               <span className={styles.criteria__text_black}>
-                находишь контакт с людьми
+                находит контакт с людьми
               </span>
-              , способен объяснить доступно, обучить другого
+              , способен объяснить доступно, обучить другого.
             </div>
           </div>
           <div className={styles.criteria__card}>
             <div className={styles.criteria__card_title}>
-              Имеет рекомендацию
+              Имеет рекомендации
             </div>
             <div className={styles.criteria__text}>
               Руководитель готов дать рекомендации на сотрудника:{' '}
@@ -80,6 +82,6 @@ const Criteria = forwardRef<HTMLDivElement>((_, ref) => {
       </div>
     </section>
   );
-});
+};
 
 export default Criteria;

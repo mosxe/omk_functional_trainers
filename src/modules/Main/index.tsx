@@ -10,7 +10,7 @@ import Importants from './components/Importants';
 import Criteria from './components/Criteria';
 import Starting from './components/Starting';
 import Teaching from './components/Teaching';
-import KPI from './components/KPI';
+// import KPI from './components/KPI';
 import Support from './components/Support';
 import Model from './components/Model';
 import Program from './components/Program';
@@ -25,19 +25,18 @@ const Main = () => {
   const [data, setData] = useState<ResponseData>(initialData);
   const [isLoading, setLoading] = useState<boolean>(true);
   const [isError, setError] = useState<boolean>(false);
-  const criteriaRef = useRef<HTMLDivElement>(null);
+  const startingRef = useRef<HTMLDivElement>(null);
   const supportRef = useRef<HTMLDivElement>(null);
 
-  const hancleClickSection = useCallback((isTeaching: boolean) => {
+  const hancleClickSection = useCallback((isStarting: boolean) => {
     const headerHeight = 64;
-    if (isTeaching && criteriaRef.current) {
+    if (isStarting && startingRef.current) {
       const scrollPosY =
-        criteriaRef.current.getBoundingClientRect().top - headerHeight;
+        startingRef.current.getBoundingClientRect().top - headerHeight;
       window.scrollTo({
         top: scrollPosY,
         behavior: 'smooth'
       });
-      // criteriaRef.current?.scrollIntoView({ behavior: 'smooth' });
     } else if (supportRef.current) {
       const scrollPosY =
         supportRef.current.getBoundingClientRect().top - headerHeight;
@@ -96,10 +95,10 @@ const Main = () => {
         <Advantages />
         <Definitions />
         <Importants />
-        <Criteria ref={criteriaRef} />
-        <Starting />
+        <Criteria />
+        <Starting ref={startingRef} />
         <Teaching />
-        <KPI />
+        {/* <KPI /> */}
         <Support ref={supportRef} />
         <Model
           link={data.data.link_model_competence}

@@ -38,6 +38,10 @@
     &_end {
       align-self: flex-end;
     }
+
+    &_w {
+      flex-basis: 100%;
+    }
   }
 
   &__text {

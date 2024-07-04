@@ -9,10 +9,11 @@ const Advantages = () => {
     <section className={styles.advantages}>
       <h2 className={styles.advantages__title}>
         <span className={styles.advantages__title_red}>Преимущества</span>{' '}
-        преподавания
+        обучения других
       </h2>
       <div className={styles.advantages__text}>
-        Преподавание – это возможность развиваться самому и развивать других.
+        Преподавание и тренерство – это подтверждение статуса эксперта,
+        возможность развиваться самому и развивать других.
       </div>
       <div className={styles.advantages__wrapper}>
         <div className={styles.advantages__card}>
@@ -34,6 +35,22 @@ const Advantages = () => {
         <div className={styles.advantages__card}>
           <img
             className={styles.advantages__card_img}
+            src={Image4}
+            alt='Картинка'
+          />
+          <div className={styles.advantages__card_wrapper}>
+            <span className={styles.advantages__card_title}>
+              Материальное поощрение
+            </span>
+            <span className={styles.advantages__card_text}>
+              Преподаватели получают вознаграждение как за проведение программ,
+              так и за разработку методических материалов.
+            </span>
+          </div>
+        </div>
+        <div className={styles.advantages__card}>
+          <img
+            className={styles.advantages__card_img}
             src={Image2}
             alt='Картинка'
           />
@@ -43,7 +60,7 @@ const Advantages = () => {
             </span>
             <span className={styles.advantages__card_text}>
               Преподаватели проходят комплексную программу обучения и развития
-              навыков преподавания.
+              тренерских навыков.
             </span>
           </div>
         </div>
@@ -59,22 +76,7 @@ const Advantages = () => {
             </span>
             <span className={styles.advantages__card_text}>
               Делиться собственным опытом и экспертизой и приятно, и очень
-              полезно.
-            </span>
-          </div>
-        </div>
-        <div className={styles.advantages__card}>
-          <img
-            className={styles.advantages__card_img}
-            src={Image4}
-            alt='Картинка'
-          />
-          <div className={styles.advantages__card_wrapper}>
-            <span className={styles.advantages__card_title}>
-              Материальное поощрение
-            </span>
-            <span className={styles.advantages__card_text}>
-              за проведение обучающих программ
+              полезно
             </span>
           </div>
         </div>

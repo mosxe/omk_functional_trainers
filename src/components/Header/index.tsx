@@ -18,10 +18,8 @@ const Header = ({ onClick }: Props) => {
         </div>
         <div className={styles.header__container}>
           <h1 className={styles.header__title}>
-            <span className={styles.header__title_red}>
-              Программа подготовки и развития
-            </span>{' '}
-            внутренних преподавателей ОМК
+            <span className={styles.header__title_red}>РАЗВИТИЕ</span>{' '}
+            ВНУТРЕННИХ ПРЕПОДАВАТЕЛЕЙ И ФУНКЦИОНАЛЬНЫХ ТРЕНЕРОВ ОМК
           </h1>
           <div className={styles.header__btns}>
             <button

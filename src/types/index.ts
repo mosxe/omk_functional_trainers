@@ -7,7 +7,7 @@ export interface Material {
   type: string;
   title: string;
   desc: string;
-  is_download: boolean;
+  is_download: string;
   link: string;
 }
 

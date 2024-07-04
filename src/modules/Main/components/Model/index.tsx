@@ -23,6 +23,10 @@ const Model = ({ link, video }: Props) => {
 
   const linkVideo = getLink(video);
 
+  const descClassName = video
+    ? styles.model__content
+    : `${styles.model__content} ${styles.model__content_w}`;
+
   return (
     <section className={styles.model}>
       <div className={styles.model__wrapper}>
@@ -44,7 +48,7 @@ const Model = ({ link, video }: Props) => {
           </div>
         </div>
         <div className={styles.model__row}>
-          <div className={styles.model__content}>
+          <div className={descClassName}>
             <p className={styles.model__text}>
               Модель компетенций — это описание навыков, которыми должен
               обладать преподаватель, чтобы{' '}
@@ -61,13 +65,15 @@ const Model = ({ link, video }: Props) => {
               развития.
             </p>
           </div>
-          <div className={styles.model__content}>
-            <div className={styles.model__video}>
-              <video controls>
-                <source src={linkVideo} />
-              </video>
+          {video && (
+            <div className={styles.model__content}>
+              <div className={styles.model__video}>
+                <video controls>
+                  <source src={linkVideo} />
+                </video>
+              </div>
             </div>
-          </div>
+          )}
         </div>
         <div>
           <div className={styles.model__container}>

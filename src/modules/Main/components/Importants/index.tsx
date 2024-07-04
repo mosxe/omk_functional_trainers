@@ -22,7 +22,7 @@ const Importants = () => {
             />
             <div className={styles.importants__text}>
               <span className={styles.importants__text_black}>
-                90% всего объема обучения
+                80% всего объема обучения
               </span>{' '}
               в компании проводится силами внутренних преподавателей и
               функциональных тренеров
@@ -38,13 +38,13 @@ const Importants = () => {
               <span className={styles.importants__text_black}>
                 Внутренние преподаватели и функциональные тренеры
               </span>{' '}
-              компании обучают = выводят<br></br> на производство{' '}
+              компании обучают, а значит выводят на производство,{' '}
               <span className={styles.importants__text_black}>
-                до 100% новых сотрудников,
+                новых сотрудников,
               </span>{' '}
               проводят{' '}
               <span className={styles.importants__text_black}>
-                все курсы повышения квалификации<br></br> и переквалификации
+                курсы повышения квалификации и переквалификации
               </span>
             </div>
           </div>

@@ -1,4 +1,4 @@
-﻿import { useState } from 'react';
+﻿import { useState, forwardRef } from 'react';
 import Popap from 'components/Popap';
 import Form from './components/Form';
 import PopapAlert from '../Program/PopapAlert';
@@ -11,7 +11,7 @@ import { ResponseForm } from 'types';
 import { getFetchForm, initialForm } from '../../utils';
 import styles from './styles.module.scss';
 
-const Starting = () => {
+const Starting = forwardRef<HTMLDivElement>((_, ref) => {
   const [data, setData] = useState<ResponseForm>(initialForm);
   const [isLoading, setLoading] = useState<boolean>(true);
   const [isError, setError] = useState<boolean>(false);
@@ -54,7 +54,7 @@ const Starting = () => {
 
   return (
     <>
-      <section className={styles.starting}>
+      <section className={styles.starting} ref={ref}>
         <div className={styles.starting__wrapper}>
           <h2 className={styles.starting__title}>
             <span className={styles.starting__title_red}>Как начать</span>{' '}
@@ -72,7 +72,7 @@ const Starting = () => {
                   Заполни анкету
                 </div>
                 <div className={styles.starting__card_text}>
-                  Нажми на ссылку, заполни и отправь анкету куратору
+                  Нажми на ссылку, заполни и отправь анкету куратору.
                 </div>
               </div>
               <button
@@ -95,7 +95,7 @@ const Starting = () => {
                 </div>
                 <div className={styles.starting__card_text}>
                   Анкету получит куратор проекта, запросит рекомендации от
-                  руководителя и пригласит тебя на установочную встречу
+                  руководителя и пригласит тебя на установочную встречу.
                 </div>
               </div>
             </div>
@@ -110,9 +110,10 @@ const Starting = () => {
                   Пройди диагностику
                 </div>
                 <div className={styles.starting__card_text}>
-                  Диагностика базовых навыков передачи информации позволит
-                  понять, какие компетенции преподавания тебе необходимо
-                  развивать
+                  Диагностика навыков передачи информации позволит понять, какие
+                  компетенции необходимо развивать для качественного обучения
+                  других людей. Для кандидатов в преподаватели и тренеры
+                  диагностика является отборочным этапом.
                 </div>
               </div>
             </div>
@@ -124,11 +125,11 @@ const Starting = () => {
                   alt='Картинка'
                 />
                 <div className={styles.starting__card_title}>
-                  Обучайся и готовься к аттестации
+                  Пройди аттестацию, проводи обучение и развивай навыки
                 </div>
                 <div className={styles.starting__card_text}>
-                  На программе развития внутренних преподавателей ты обучишься и
-                  подготовишься к аттестации на проведение обучающей программы
+                  Пройди аттестацию на проведение обучающей программы, развивай
+                  навыки обучения и улучшай качество проведения программ.
                 </div>
               </div>
             </div>
@@ -153,6 +154,6 @@ const Starting = () => {
       </Popap>
     </>
   );
-};
+});
 
 export default Starting;

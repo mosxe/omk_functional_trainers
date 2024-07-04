@@ -117,7 +117,7 @@
       },
       "link_model_competence": "http://localhost/download_file.html?file_id=7042721113247233466",
       "link_events": "http://localhost/download_file.html?file_id=6972734825693151124",
-      "model_competence_video": "http://localhost/download_file.html?file_id=7058234202490827438"
+      "model_competence_video": ""
     },
     "isError": false,
     "errorMessage": ""
