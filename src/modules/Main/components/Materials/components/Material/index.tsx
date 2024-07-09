@@ -29,7 +29,7 @@ const Material = ({ data, style }: Props) => {
       <div className={styles.materials__card_wrapper}>
         <span className={styles.materials__card_title}>{data.title}</span>
         <div className={styles.materials__card_aside}>
-          {data.is_download ? (
+          {data.is_download === 'true' ? (
             <>
               <div className={styles.materials__card_help}>
                 материал для скачивания

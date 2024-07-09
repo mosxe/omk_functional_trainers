@@ -104,11 +104,8 @@
     }
 
     &_help {
-      position: absolute;
-      top: 0;
-      right: 30px;
       min-width: 131px;
-      max-width: 176px;
+      width: 131px;
       padding: 6px 10px;
       border-radius: 5px;
       background-color: var(--page-color-gray);
