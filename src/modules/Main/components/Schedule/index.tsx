@@ -77,9 +77,6 @@ const Schedule = ({ data, link }: Props) => {
             <span className={styles['schedule__text-m']}>
               обучающих мероприятий
             </span>
-            <span className={styles['schedule__text-s']}>
-              на 1 полугодие 2024 года
-            </span>
           </div>
           {link && (
             <button
